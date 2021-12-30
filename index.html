@@ -3,6 +3,7 @@
 
 <head>
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,24 +12,66 @@
 
 <body>
 
-    <button class='btn'>Sources</button>
-    <button class='btn'>Regions</button>
-    <button class="btn">Networks</button>
-    <button id='search'>Search</button>
-    <input type="text" id='input'>
-    <p id='error'>Couldn't find results. Check spelling and try again.</p>
-    <p>Regions available: <span id="region-output"></span></p>
-    <p> <span id='sources-output'></span></p>
-    <div class="networks-container">
-        <h3>Networks:</h3>
-        <ul id=network-output></ul>
+    <div class="nav-container">
+        <nav class='navbar'>
+            <h1>WatchMode</h1>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Search</a></li>
+                <li><a href="#">Learn More</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="btn">
+                <div class="menu-bars"></div>
+              </div>
+        </nav>
     </div>
-    <div id="search-container">
-        
+
+
+    <div class="top-section">
+        <div class="custom-shape-divider-top-1640845458">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path
+                    d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+                    class="shape-fill"></path>
+            </svg>
+        </div>
+        <div class="max-container">
+            <div class="wrapper">
+                <div class="static-text">Find </div>
+                <ul class='dynamic-texts'>
+                    <li><span>Movies</span></li>
+                    <li><span>TV Shows</span></li>
+                    <li><span>Your Favorites</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="custom-shape-divider-bottom-1640845402">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+                preserveAspectRatio="none">
+                <path
+                    d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+                    class="shape-fill"></path>
+            </svg>
+        </div>
     </div>
 
+    <div class="mid-section"></div>
 
 
+
+
+
+
+
+
+    <script>
+        window.addEventListener('scroll', function () {
+            let navContainer = document.querySelector('.nav-container');
+            navContainer.classList.toggle('scrolling-active', window.scrollY > 1);
+        })
+    </script>
     <script src="app.js"></script>
 </body>
 

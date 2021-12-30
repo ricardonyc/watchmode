@@ -8,7 +8,7 @@
 }
 
 body {
-  min-height: 150vh;
+  min-height: 100vh;
   background: white;
   overflow-x: hidden;
 }
@@ -19,10 +19,10 @@ body {
 }
 
 .nav-container {
-  -webkit-transition: background 600ms ease-in-out, -webkit-box-shadow 600ms ease-in-out;
-  transition: background 600ms ease-in-out, -webkit-box-shadow 600ms ease-in-out;
-  transition: background 600ms ease-in-out, box-shadow 600ms ease-in-out;
-  transition: background 600ms ease-in-out, box-shadow 600ms ease-in-out, -webkit-box-shadow 600ms ease-in-out;
+  -webkit-transition: -webkit-box-shadow 600ms ease-in-out;
+  transition: -webkit-box-shadow 600ms ease-in-out;
+  transition: box-shadow 600ms ease-in-out;
+  transition: box-shadow 600ms ease-in-out, -webkit-box-shadow 600ms ease-in-out;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -32,12 +32,12 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background: #f76c6c;
+  height: 70px;
+  width: 100%;
   position: fixed;
   top: 0;
   z-index: 99999999999;
-  width: 100%;
-  background: #f76c6c;
-  height: 70px;
 }
 
 .nav-container .navbar {
@@ -59,6 +59,7 @@ body {
   font-weight: 900;
   margin-left: 2rem;
   color: white;
+  font-size: 1.9rem;
 }
 
 .nav-container .navbar ul {
@@ -76,9 +77,9 @@ body {
 }
 
 .nav-container .navbar ul li a {
+  -webkit-transition: color 300ms ease-in-out;
+  transition: color 300ms ease-in-out;
   text-decoration: none;
-  -webkit-transition: color 300ms;
-  transition: color 300ms;
   color: white;
 }
 
@@ -93,10 +94,6 @@ body {
 }
 
 .top-section .main-top-container {
-  max-width: 1400px;
-  background: #24305e;
-  height: 100%;
-  margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -106,80 +103,44 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.top-section .main-top-container .wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.top-section .main-top-container .wrapper .static-text {
-  font-weight: 500;
-  font-size: 3rem;
-  color: white;
-}
-
-.top-section .main-top-container .wrapper .dynamic-texts {
-  line-height: 75px;
-  height: 90px;
-  overflow: hidden;
-  margin-left: 1rem;
-}
-
-.top-section .main-top-container .wrapper .dynamic-texts li {
-  list-style: none;
-  color: #f76c6c;
-  font-size: 3rem;
-  font-weight: 500;
-  position: relative;
-  top: 0;
-  -webkit-animation: slide 13s steps(3) infinite;
-          animation: slide 13s steps(3) infinite;
-}
-
-.top-section .main-top-container .wrapper .dynamic-texts li::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  border-left: 2px solid #f76c6c;
-  -webkit-animation: typing 3s steps(10) infinite;
-          animation: typing 3s steps(10) infinite;
+  max-width: 1400px;
   background: #24305e;
+  height: 100%;
+  margin: auto;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-@-webkit-keyframes typing {
-  40%,
-  60% {
-    left: calc(100% + 30px);
-  }
-  100% {
-    left: 0;
-  }
+.top-section .main-top-container .main-text, .top-section .main-top-container p {
+  padding: 0 3rem;
+  text-align: center;
+  color: #f76c6c;
+  font-size: 1.8rem;
 }
 
-@keyframes typing {
-  40%,
-  60% {
-    left: calc(100% + 30px);
-  }
-  100% {
-    left: 0;
-  }
+.top-section .main-top-container p {
+  color: #a8d0e6;
+  font-size: 1.2rem;
 }
 
-@-webkit-keyframes slide {
-  100% {
-    top: -360px;
-  }
+.top-section .main-top-container a {
+  -webkit-transition: background 150ms ease-in-out;
+  transition: background 150ms ease-in-out;
+  background: #f76c6c;
+  border-radius: 2px;
+  color: #24305e;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
 }
 
-@keyframes slide {
-  100% {
-    top: -360px;
-  }
+.top-section .main-top-container a:hover {
+  background: #a8d0e6;
 }
 
 .custom-shape-divider-top-1640845458 {
@@ -227,6 +188,16 @@ body {
 .mid-section {
   height: 100vh;
   background: #f76c6c;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .btn {
@@ -314,6 +285,15 @@ body {
             transform: translateY(16px);
     -webkit-transform: translateX(50px) rotate(-45deg);
             transform: translateX(50px) rotate(-45deg);
+  }
+  .top-section .main-top-container .main-text, .top-section .main-top-container p {
+    font-size: 1.5rem;
+  }
+  .top-section .main-top-container p {
+    font-size: 1rem;
+  }
+  .top-section .main-top-container a {
+    font-size: 1rem;
   }
 }
 /*# sourceMappingURL=style.css.map */

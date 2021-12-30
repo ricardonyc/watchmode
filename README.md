@@ -4,4 +4,4 @@
 ### Look no further! This website will tell you where your favorite show or movie is streaming, whether its free, available for purcahse or if there's a subscription required!
 
 
-## [Live Site Here](https://ricardonyc.github.io/watch-where/)
+## [Live Site Here](https://ricardonyc.github.io/watchmode/)

@@ -186,18 +186,52 @@ body {
 }
 
 .mid-section {
+  width: 100%;
   height: 100vh;
   background: #f76c6c;
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+}
+
+.mid-section .mid-container {
+  display: -ms-grid;
+  display: grid;
+  justify-items: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  grid: 1fr / 1fr 1fr;
+      grid-template-areas: "text svg";
+  position: relative;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  max-width: 1400px;
+  margin: auto;
+  background: #f76c6c;
+}
+
+.mid-section .mid-container .text-container {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: text;
+}
+
+.mid-section .mid-container .text-container .mid-text, .mid-section .mid-container .text-container p {
+  color: white;
+  text-align: center;
+}
+
+.mid-section .mid-container .svg-animation {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: svg;
+  max-width: 800px;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 
 .btn {

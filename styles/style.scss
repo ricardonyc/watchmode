@@ -165,10 +165,45 @@ body {
 // TOP SECTION SVGs END
 
 .mid-section {
+  width: 100%;
   height: 100vh;
   background: $salmon;
   position: relative;
-  @include flexCenter;
+
+  .mid-container {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid: 1fr / 1fr 1fr;
+    grid-template-areas: "text svg";
+    position: relative;
+    flex-direction: column;
+    height: 100%;
+    max-width: 1400px;
+    margin: auto;
+    background: $salmon;
+
+    .text-container {
+      grid-area: text;
+
+      .mid-text {
+        color: white;
+        text-align: center;
+      }
+
+      p {
+        @extend .mid-text;
+      }
+    }
+
+    .svg-animation {
+      grid-area: svg;
+      max-width: 800px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
 }
 
 .btn {

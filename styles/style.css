@@ -76,6 +76,12 @@ body {
 
 .nav-container .navbar ul li a {
   text-decoration: none;
+  -webkit-transition: color 300ms;
+  transition: color 300ms;
+}
+
+.nav-container .navbar ul li a:hover {
+  color: #24305e;
 }
 
 .top-section {

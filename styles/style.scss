@@ -78,6 +78,11 @@ body {
 
         a {
           text-decoration: none;
+          transition: color 300ms;
+
+          &:hover {
+            color: $dark-blue;
+          }
         }
       }
     }
@@ -198,7 +203,7 @@ body {
     background: white;
     transition: width 400ms ease-in-out, transform 400ms ease-in-out,
       background 400ms ease-in-out;
-    // transform: rotate(45deg); 
+    // transform: rotate(45deg);
     opacity: 1;
   }
 

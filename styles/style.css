@@ -234,7 +234,7 @@ body {
   grid-area: text;
 }
 
-.mid-section .mid-container .text-container .mid-text, .mid-section .mid-container .text-container p {
+.mid-section .mid-container .text-container .mid-text {
   color: white;
   text-align: center;
   padding: 0 3rem;
@@ -242,6 +242,9 @@ body {
 }
 
 .mid-section .mid-container .text-container p {
+  text-align: center;
+  padding: 0 3rem;
+  color: white;
   font-size: 1rem;
 }
 
@@ -392,23 +395,17 @@ body {
     background: #a8d0e6;
     height: 100%;
   }
-  .mid-section .mid-container .text-container .mid-text, .mid-section .mid-container .text-container p {
+  .mid-section .mid-container .text-container .mid-text {
     color: #24305e;
-    position: relative;
-    z-index: 99;
+    font-size: 1.3rem;
+  }
+  .mid-section .mid-container .text-container .paragraph {
+    font-size: .9rem;
+    color: #24305e;
   }
   .mid-section .mid-container .text-container a {
-    -webkit-transition: background 150ms ease-in-out;
-    transition: background 150ms ease-in-out;
-    background: #f76c6c;
-    border-radius: 2px;
-    color: #24305e;
-    cursor: pointer;
-    font-weight: 500;
-    font-size: 1.1rem;
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
+    width: 135px;
+    font-size: .9rem;
     background: #24305e;
     color: #a8d0e6;
   }

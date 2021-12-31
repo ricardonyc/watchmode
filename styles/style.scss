@@ -222,7 +222,9 @@ body {
       }
 
       p {
-        @extend .mid-text;
+        text-align: center;
+        padding: 0 3rem;
+        color: white;
         font-size: $p-size;
       }
 
@@ -357,12 +359,19 @@ body {
 
         .mid-text {
           color: $dark-blue;
-          position: relative;
-          z-index: 99;
+          // position: relative;
+          // z-index: 99;
+          font-size: 1.3rem;
+        }
+
+        .paragraph {
+          font-size: .9rem;
+          color: $dark-blue;
         }
 
         a {
-          @include btn;
+          width: 135px;
+          font-size: .9rem;
           background: $dark-blue;
           color: $baby-blue;
 

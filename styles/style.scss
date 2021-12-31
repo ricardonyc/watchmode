@@ -25,6 +25,12 @@
   text-decoration: none;
 }
 
+@mixin burger {
+  width: 40px;
+  height: 6px;
+  border-radius: 10px;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -196,7 +202,6 @@ body {
     grid: 1fr / 1fr 1fr;
     grid-template-areas: "text svg";
     position: relative;
-    // flex-direction: column;
     height: 100%;
     max-width: 1400px;
     margin: 0 auto;
@@ -243,81 +248,72 @@ body {
   display: none;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
   .navbar {
     ul {
       li {
         display: none;
       }
     }
-  }
 
-  .btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem 0;
-    cursor: pointer;
-    margin-right: 2rem;
-    // border: 1px solid white;
-  }
+    .btn {
+      @include flexCenter();
+      margin-right: 2rem;
+      cursor: pointer;
+      position: relative;
+      z-index: 999999;
+    }
 
-  .menu-bars {
-    width: 30px;
-    height: 5px;
-    background: white;
-    position: relative;
-    background: white;
-    border-radius: 10px;
-    transition: transform 400ms ease-in-out, background 400ms ease-in-out,
-      box-shadow 400ms ease-in-out;
-  }
+    .menu-bars {
+      @include burger;
+      position: relative;
+      background: white;
+      transition: transform 400ms ease-in-out, background 400ms ease-in-out,
+        box-shadow 400ms ease-in-out;
+    }
 
-  .btn.open .menu-bars {
-    transform: translateX(-50px);
-    background: transparent;
-    box-shadow: 0 0 0 transparent;
-  }
+    .btn.open .menu-bars {
+      transform: translateX(-50px);
+      background: transparent;
+    }
 
-  .menu-bars::before,
-  .menu-bars::after {
-    content: "";
-    width: 100%;
-    height: 5px;
-    position: absolute;
-    border-radius: 10px;
-  }
+    .menu-bars::before,
+    .menu-bars::after {
+      content: "";
+      @include burger;
+      position: absolute;
+    }
 
-  .menu-bars::before {
-    width: 100%;
-    transform: translateY(-10px);
-    background: white;
-    transition: width 400ms ease-in-out, transform 400ms ease-in-out,
-      background 400ms ease-in-out;
-    // transform: rotate(45deg);
-    opacity: 1;
-  }
+    .menu-bars::before {
+      width: 100%;
+      transform: translateY(-12px);
+      background: white;
+      transition: width 400ms ease-in-out, transform 400ms ease-in-out,
+        background 400ms ease-in-out;
+      opacity: 1;
+    }
 
-  .menu-bars::after {
-    background: white;
-    transform: translateY(10px);
-    transition: transform 400ms ease-in-out, background 400ms ease-in-out;
-  }
+    .btn.open .menu-bars::before {
+      background: white;
+      transform: translateY(-16px);
+      transform: translateX(50px) rotate(45deg);
+    }
 
-  .btn.open .menu-bars::before {
-    background: white;
-    transform: translateY(-16px);
-    transform: translateX(50px) rotate(45deg);
-  }
+    .btn.open .menu-bars::before {
+      width: 40px;
+    }
 
-  .btn.open .menu-bars::before {
-    width: 50px;
-  }
+    .menu-bars::after {
+      background: white;
+      transform: translateY(12px);
+      transition: transform 400ms ease-in-out, background 400ms ease-in-out;
+    }
 
-  .btn.open .menu-bars::after {
-    background: white;
-    transform: translateY(16px);
-    transform: translateX(50px) rotate(-45deg);
+    .btn.open .menu-bars::after {
+      background: white;
+      transform: translateY(16px);
+      transform: translateX(50px) rotate(-45deg);
+    }
   }
 
   .top-section {
@@ -327,18 +323,15 @@ body {
       }
 
       p {
-        // @extend .main-text;
-        font-size: 1rem;
+        font-size: $p-size;
       }
 
       a {
-        font-size: 1rem;
+        font-size: $primary-btn;
       }
     }
   }
-}
 
-@media screen and (max-width: 1000px) {
   .mid-section {
     // border: 3px solid white;
     position: relative;
@@ -356,8 +349,8 @@ body {
       }
 
       .text-container {
-        position: relative;
         @include flexCenter();
+        position: relative;
         flex-direction: column;
         background: $baby-blue;
         height: 100%;

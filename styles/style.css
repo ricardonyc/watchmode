@@ -81,9 +81,27 @@ body {
   transition: color 300ms ease-in-out;
   text-decoration: none;
   color: white;
+  font-weight: 500;
 }
 
 .nav-container .navbar ul li a:hover {
+  color: #24305e;
+}
+
+.nav-container .navbar ul li a .contact {
+  -webkit-transition: background 400ms ease-in-out;
+  transition: background 400ms ease-in-out;
+  -webkit-transition: color 400ms ease-in-out;
+  transition: color 400ms ease-in-out;
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
+  background: #24305e;
+  color: white;
+  font-size: 1rem;
+}
+
+.nav-container .navbar ul li a .contact:hover {
+  background: #a8d0e6;
   color: #24305e;
 }
 
@@ -382,6 +400,6 @@ body {
 }
 
 .custom-shape-divider-bottom-1640918016 .shape-fill {
-  fill: #24305E;
+  fill: #24305e;
 }
 /*# sourceMappingURL=style.css.map */

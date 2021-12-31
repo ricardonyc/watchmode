@@ -79,9 +79,25 @@ body {
           @include transition(color, 300ms);
           text-decoration: none;
           color: white;
+          font-weight: 500;
 
           &:hover {
             color: $dark-blue;
+          }
+
+          .contact {
+            @include transition(background, 400ms);
+            @include transition(color, 400ms);
+            padding: 0.5rem 1rem;
+            border-radius: 3px;
+            background: $dark-blue;
+            color: white;
+            font-size: 1rem;
+
+            &:hover {
+              background: $baby-blue;
+              color: $dark-blue;
+            }
           }
         }
       }
@@ -361,5 +377,5 @@ body {
 }
 
 .custom-shape-divider-bottom-1640918016 .shape-fill {
-  fill: #24305E;
+  fill: #24305e;
 }

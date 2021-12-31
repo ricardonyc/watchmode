@@ -374,7 +374,7 @@ body {
         grid-template-areas: "svg" "text";
   }
   .mid-section .mid-container .svg {
-    max-width: 500px;
+    max-width: 60vw;
     margin: 0 2rem;
   }
   .mid-section .mid-container .text-container {
@@ -442,27 +442,5 @@ body {
     width: calc(140% + 1.3px);
     height: 56px;
   }
-}
-
-.custom-shape-divider-bottom-1640918016 {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-}
-
-.custom-shape-divider-bottom-1640918016 svg {
-  position: relative;
-  display: block;
-  width: calc(100% + 1.3px);
-  height: 116px;
-}
-
-.custom-shape-divider-bottom-1640918016 .shape-fill {
-  fill: #24305e;
 }
 /*# sourceMappingURL=style.css.map */

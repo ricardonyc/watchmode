@@ -86,8 +86,7 @@ body {
           }
 
           .contact {
-            @include transition(background, 400ms);
-            @include transition(color, 400ms);
+            @include transition(background, 300ms);
             padding: 0.5rem 1rem;
             border-radius: 3px;
             background: $dark-blue;
@@ -202,6 +201,10 @@ body {
     max-width: 1400px;
     margin: 0 auto;
     background: $salmon;
+
+    img {
+      padding: 0 2rem;
+    }
 
     .text-container {
       grid-area: text;
@@ -344,21 +347,72 @@ body {
       // border: 2px solid blue;
       grid: 1fr 1fr / 1fr;
       grid-template-areas:
-        "text"
-        "svg";
+        "svg"
+        "text";
 
-      .text-container {
-        // border: 1px solid white;
-        margin-top: 8rem;
+      .svg {
+        max-width: 500px;
+        margin: 0 2rem;
       }
 
-      img {
-        margin: 0 2rem;
+      .text-container {
+        position: relative;
+        @include flexCenter();
+        flex-direction: column;
+        background: $baby-blue;
+        height: 100%;
+
+        .mid-text {
+          color: $dark-blue;
+          position: relative;
+          z-index: 99;
+        }
+
+        a {
+          @include btn;
+          background: $dark-blue;
+          color: $baby-blue;
+
+          &:hover {
+            background: $salmon;
+          }
+        }
       }
     }
   }
 }
 
+// baby blue wave at the bottom
+.custom-shape-divider-top-1640982283 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-top-1640982283 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 100px;
+}
+
+.custom-shape-divider-top-1640982283 .shape-fill {
+  fill: #f76c6c;
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+  .custom-shape-divider-top-1640982283 svg {
+    width: calc(140% + 1.3px);
+    height: 56px;
+  }
+}
+
+// dark blue wave at the bottom
 .custom-shape-divider-bottom-1640918016 {
   position: absolute;
   bottom: 0;

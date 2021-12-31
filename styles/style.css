@@ -103,14 +103,14 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  max-width: 1400px;
-  background: #24305e;
-  height: 100%;
-  margin: auto;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  max-width: 1400px;
+  background: #24305e;
+  height: 100%;
+  margin: auto;
 }
 
 .top-section .main-top-container .main-text, .top-section .main-top-container p {
@@ -202,13 +202,9 @@ body {
   grid: 1fr / 1fr 1fr;
       grid-template-areas: "text svg";
   position: relative;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   height: 100%;
   max-width: 1400px;
-  margin: auto;
+  margin: 0 auto;
   background: #f76c6c;
 }
 
@@ -221,17 +217,37 @@ body {
 .mid-section .mid-container .text-container .mid-text, .mid-section .mid-container .text-container p {
   color: white;
   text-align: center;
+  padding: 0 3rem;
+  font-size: 1.8rem;
 }
 
-.mid-section .mid-container .svg-animation {
-  -ms-grid-row: 1;
-  -ms-grid-column: 2;
-  grid-area: svg;
-  max-width: 800px;
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+.mid-section .mid-container .text-container p {
+  font-size: 1rem;
+}
+
+.mid-section .mid-container .text-container a {
+  -webkit-transition: background 150ms ease-in-out;
+  transition: background 150ms ease-in-out;
+  background: #f76c6c;
+  border-radius: 2px;
+  color: #24305e;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  display: block;
+  width: 160px;
+  text-align: center;
+  margin: 1rem auto 0 auto;
+  background: #24305e;
+  color: white;
+}
+
+.mid-section .mid-container .text-container a:hover {
+  background: #a8d0e6;
+  color: #24305e;
 }
 
 .btn {
@@ -329,5 +345,43 @@ body {
   .top-section .main-top-container a {
     font-size: 1rem;
   }
+}
+
+@media screen and (max-width: 1000px) {
+  .mid-section {
+    position: relative;
+  }
+  .mid-section .mid-container {
+    grid: 1fr 1fr / 1fr;
+        grid-template-areas: "text" "svg";
+  }
+  .mid-section .mid-container .text-container {
+    margin-top: 8rem;
+  }
+  .mid-section .mid-container img {
+    margin: 0 2rem;
+  }
+}
+
+.custom-shape-divider-bottom-1640918016 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1640918016 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 116px;
+}
+
+.custom-shape-divider-bottom-1640918016 .shape-fill {
+  fill: #24305E;
 }
 /*# sourceMappingURL=style.css.map */

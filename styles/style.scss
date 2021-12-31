@@ -12,6 +12,19 @@
   transition: $property $seconds ease-in-out;
 }
 
+@mixin btn {
+  @include transition(background, 150ms);
+  background: $salmon;
+  border-radius: 2px;
+  color: $dark-blue;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: $primary-btn;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -83,11 +96,11 @@ body {
 
   .main-top-container {
     @include flexCenter;
+    flex-direction: column;
     max-width: 1400px;
     background: $dark-blue;
     height: 100%;
     margin: auto;
-    flex-direction: column;
 
     .main-text {
       padding: 0 3rem;
@@ -103,16 +116,7 @@ body {
     }
 
     a {
-      @include transition(background, 150ms);
-      background: $salmon;
-      border-radius: 2px;
-      color: $dark-blue;
-      cursor: pointer;
-      font-weight: 500;
-      font-size: $primary-btn;
-      margin-top: 1rem;
-      padding: 0.5rem 1rem;
-      text-decoration: none;
+      @include btn;
 
       &:hover {
         background: $baby-blue;
@@ -177,10 +181,10 @@ body {
     grid: 1fr / 1fr 1fr;
     grid-template-areas: "text svg";
     position: relative;
-    flex-direction: column;
+    // flex-direction: column;
     height: 100%;
     max-width: 1400px;
-    margin: auto;
+    margin: 0 auto;
     background: $salmon;
 
     .text-container {
@@ -189,19 +193,29 @@ body {
       .mid-text {
         color: white;
         text-align: center;
+        padding: 0 3rem;
+        font-size: $h2-size;
       }
 
       p {
         @extend .mid-text;
+        font-size: $p-size;
       }
-    }
 
-    .svg-animation {
-      grid-area: svg;
-      max-width: 800px;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
+      a {
+        @include btn;
+        display: block;
+        width: 160px;
+        text-align: center;
+        margin: 1rem auto 0 auto;
+        background: $dark-blue;
+        color: white;
+
+        &:hover {
+          background: $baby-blue;
+          color: $dark-blue;
+        }
+      }
     }
   }
 }
@@ -303,4 +317,49 @@ body {
       }
     }
   }
+}
+
+@media screen and (max-width: 1000px) {
+  .mid-section {
+    // border: 3px solid white;
+    position: relative;
+
+    .mid-container {
+      // border: 2px solid blue;
+      grid: 1fr 1fr / 1fr;
+      grid-template-areas:
+        "text"
+        "svg";
+
+      .text-container {
+        // border: 1px solid white;
+        margin-top: 8rem;
+      }
+
+      img {
+        margin: 0 2rem;
+      }
+    }
+  }
+}
+
+.custom-shape-divider-bottom-1640918016 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1640918016 svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 116px;
+}
+
+.custom-shape-divider-bottom-1640918016 .shape-fill {
+  fill: #24305E;
 }

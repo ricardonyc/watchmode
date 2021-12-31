@@ -1,3 +1,8 @@
+window.addEventListener("scroll", function () {
+  let navContainer = document.querySelector(".nav-container");
+  navContainer.classList.toggle("scrolling-active", window.scrollY > 1);
+});
+
 const buttons = document.querySelectorAll(".btn");
 
 // make multiple buttons
@@ -59,18 +64,18 @@ search.addEventListener("click", () => {
           document.getElementById("error").style.display = "none";
           const searchContainer = document.getElementById("search-container");
           const h2 = document.createElement("p");
-          const p = document.createElement("p")
+          const p = document.createElement("p");
           searchContainer.innerText = "";
           const text = document.createTextNode(
             `${data2.original_title} (${data2.year})`
           );
-          const plotOverview = document.createTextNode(data2.plot_overview)
+          const plotOverview = document.createTextNode(data2.plot_overview);
           // const plot = document.createTextNode(data2.)
           // const plot = document.createTextNode(data.)
           h2.appendChild(text);
-          p.appendChild(plotOverview)
+          p.appendChild(plotOverview);
           searchContainer.appendChild(h2);
-          searchContainer.appendChild(p)
+          searchContainer.appendChild(p);
         });
 
       // document.getElementById("error").style.display = "none"
@@ -98,3 +103,10 @@ function getRandomElements(array, amount) {
   }
   return newArr;
 }
+
+// menu
+const menuBtn = document.querySelector(".btn");
+
+menuBtn.addEventListener("click", () => {
+  menuBtn.classList.toggle("open");
+});

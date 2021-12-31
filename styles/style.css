@@ -374,7 +374,7 @@ body {
         grid-template-areas: "svg" "text";
   }
   .mid-section .mid-container .svg {
-    max-width: 500px;
+    max-width: 400px;
     margin: 0 2rem;
   }
   .mid-section .mid-container .text-container {

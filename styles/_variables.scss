@@ -1,5 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700;1,900&display=swap");
+
 // colors
-$red: #F80041;
+$red: #f80041;
 $salmon: #f76c6c;
 $yellow: #f8e9a1;
 $baby-blue: #a8d0e6;
@@ -12,3 +14,40 @@ $h2-size: 1.8rem;
 $subheading-size: 1.2rem;
 $p-size: 1rem;
 $primary-btn: 1.1rem;
+
+@mixin resets {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin transition($property, $seconds) {
+  transition: $property $seconds ease-in-out;
+}
+
+@mixin btn {
+  @include transition(background, 150ms);
+  background: $salmon;
+  border-radius: 2px;
+  color: $dark-blue;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: $primary-btn;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+}
+
+@mixin burger {
+  width: 40px;
+  height: 5px;
+  border-radius: 10px;
+}
+

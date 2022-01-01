@@ -13,5 +13,5 @@ menuBtn.addEventListener("click", () => {
 
 
 //random SVG 
-const randomNum = Math.floor(Math.random() * 5) 
-document.getElementById("svg").src = `images/movie${randomNum}.svg`
+// const randomNum = Math.floor(Math.random() * 5) 
+// document.getElementById("svg").src = `images/movie${randomNum}.svg`

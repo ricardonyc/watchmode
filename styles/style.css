@@ -298,7 +298,7 @@ body {
   }
   .navbar .menu-bars {
     width: 40px;
-    height: 6px;
+    height: 5px;
     border-radius: 10px;
     position: relative;
     background: white;
@@ -316,7 +316,7 @@ body {
   .navbar .menu-bars::after {
     content: "";
     width: 40px;
-    height: 6px;
+    height: 5px;
     border-radius: 10px;
     position: absolute;
   }
@@ -400,12 +400,12 @@ body {
     font-size: 1.3rem;
   }
   .mid-section .mid-container .text-container .paragraph {
-    font-size: .9rem;
+    font-size: 0.9rem;
     color: #24305e;
   }
   .mid-section .mid-container .text-container a {
     width: 135px;
-    font-size: .9rem;
+    font-size: 0.9rem;
     background: #24305e;
     color: #a8d0e6;
   }
@@ -431,7 +431,7 @@ body {
 }
 
 .custom-shape-divider-top-1640989481 .shape-fill {
-  fill: #F76C6C;
+  fill: #f76c6c;
 }
 
 /** For mobile devices **/

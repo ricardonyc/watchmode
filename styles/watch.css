@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700;1,900&display=swap");
+.watch-body {
+  min-height: 100vh;
+  background: #f76c6c;
+}
+
+.watch-main-section {
+  min-height: 100vh;
+  padding-top: 70px;
+  border: 3px solid yellow;
+}
+/*# sourceMappingURL=watch.css.map */

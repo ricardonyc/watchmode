@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACAA,OAAO,CAAC,wHAAI;ADGZ,AAAA,WAAW,CAAA;EACT,UAAU,EAAE,KAAK;EACjB,UAAU,ECDH,OAAO;CDEf;;AAED,AAAA,mBAAmB,CAAC;EAClB,UAAU,EAAE,KAAK;EACjB,WAAW,EAAE,IAAI;EACjB,MAAM,EAAE,gBAAgB;CACzB",
+    "sources": [
+        "watch.scss",
+        "_variables.scss"
+    ],
+    "names": [],
+    "file": "watch.css"
+}

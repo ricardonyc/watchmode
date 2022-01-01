@@ -1,0 +1,13 @@
+@import "variables";
+
+
+.watch-body{
+  min-height: 100vh;
+  background: $salmon;
+}
+
+.watch-main-section {
+  min-height: 100vh;
+  padding-top: 70px;
+  border: 3px solid yellow;
+}

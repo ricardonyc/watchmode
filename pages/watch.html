@@ -11,14 +11,16 @@
     <title>WatchMode</title>
 </head>
 
-<body class='watch-body'>
+<body id='watch-body' class='watch-body'>
+
+
+
     <section class="nav-container">
         <nav class='navbar'>
             <h1>WatchMode</h1>
             <div class="search-container">
                 <i class="fa fa-search" id='search-icon'></i>
-                <input type="text" id='search' class='nav-search'
-                    placeholder='Search movies, tv shows, genres, streaming services...'>
+                <input type="text" id='search' class='nav-search' placeholder='Search movies, tv shows, genres...'>
             </div>
             <ul>
                 <li><a href="#">Home</a></li>
@@ -31,70 +33,24 @@
         </nav>
     </section>
 
-    <!-- <section class="watch-main-section">
-        <div class="inner-container">
-            <h2>Search for your favorites</h2>
-            <div class="user-info">
-                <label for="title">Title:</label>
-                <input type="text" id='title'>
-                <select name="sources" id="sources">
-
-                </select>
-            </div>
-        </div>
-
-    </section> -->
-
-    <!-- <div id="outer-container">
-        <input type="text" id="input-value" />
-        <button id="btn">Search</button>
-        <div class="container">
-
-            <div class="container-box">
-                <img src="https://m.media-amazon.com/images/M/MV5BMTYwMTA4MzgyNF5BMl5BanBnXkFtZTgwMjEyMjE0MDE@._V1_Ratio0.7273_AL_.jpg"
-                    alt="">
-                <h2>Dallas Buyers Club</h2>
-                <p>(2013)</p>
-            </div>
-            <div class="container-box">
-                <img src="https://m.media-amazon.com/images/M/MV5BMTYwMTA4MzgyNF5BMl5BanBnXkFtZTgwMjEyMjE0MDE@._V1_Ratio0.7273_AL_.jpg"
-                    alt="">
-                <h2>Dallas Buyers Club</h2>
-                <p>(2013)</p>
-            </div>
-        </div> -->
 
 
-
+    <!-- <div class="overlay-background hidden"></div> -->
     <section class="bottom-section">
-        <div class="inner-container">
+        <div class="inner-container" id='inner-container'>
+            <!-- <div class="overlay-background"></div> -->
+            <!-- <div class="overlay hidden" id='overlay'>
+                <i class="fa fa-times" id='close-module'></i>
+            </div> -->
             <div class="input-section">
-                <input type="text" id="input">
-                <button id="btn">Search</button>
-                <!-- <select name="" id="">
-                    <option value="">Netflix</option>
-                    <option value="">Youtube</option>
-                    <option value="">HBO</option>
-                    <option value="">Amazon Prime Video</option>
-                </select>
-                <select name="" id="">
-                    <option value="">Comedy</option>
-                    <option value="">Drama</option>
-                    <option value="">Musical</option>
-                </select> -->
+                <!-- <input type="text" id="input"> -->
+                <!-- <button id="btn">Search</button> -->
+                <button id='open'>OPEN</button>
                 <button id='top250'>IMDB's Top 250 Movies</button>
-                <button id='random'>Random</button>
                 <button id="trending-movies">Trending Movies</button>
+                <button id='trending-people'>Trending People</button>
             </div>
             <div class="movies-container" id='movies-container'>
-                <!-- <div class="container-box">
-                    <img src="https://m.media-amazon.com/images/M/MV5BMTYwMTA4MzgyNF5BMl5BanBnXkFtZTgwMjEyMjE0MDE@._V1_Ratio0.7273_AL_.jpg"
-                        alt="">
-                    <div class="text-container">
-                        <h2>Dallas Buyers Club</h2>
-                        <p>(2013)</p>
-                    </div>
-                </div> -->
                 <!-- <div class="container-box">
                     <img src="https://imdb-api.com/images/original/MV5BZDEyN2NhMjgtMjdhNi00MmNlLWE5YTgtZGE4MzNjMTRlMGEwXkEyXkFqcGdeQXVyNDUyOTg3Njg@._V1_Ratio0.7273_AL_.jpg"
                         alt="">
@@ -147,61 +103,9 @@
                         <h2>Before Midnight</h2>
                         <p>(2013)</p>
                     </div>
-                </div>
-
-                <div class="container-box">
-                    <img src="https://imdb-api.com/images/original/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_Ratio0.7273_AL_.jpg"
-                        alt="">
-                    <div class="text-container">
-                        <h2>Interstellar</h2>
-                        <p>(2014)</p>
-                    </div>
-                </div>
-
-                <div class="container-box">
-                    <img src="https://m.media-amazon.com/images/M/MV5BMTYwMTA4MzgyNF5BMl5BanBnXkFtZTgwMjEyMjE0MDE@._V1_Ratio0.7273_AL_.jpg"
-                        alt="">
-                    <div class="text-container">
-                        <h2>Dallas Buyers Club</h2>
-                        <p>(2013)</p>
-                    </div>
-                </div>
-
-                <div class="container-box">
-                    <img src="https://m.media-amazon.com/images/M/MV5BMTYwMTA4MzgyNF5BMl5BanBnXkFtZTgwMjEyMjE0MDE@._V1_Ratio0.7273_AL_.jpg"
-                        alt="">
-                    <div class="text-container">
-                        <h2>Dallas Buyers Club</h2>
-                        <p>(2013)</p>
-                    </div>
-                </div>
-
-                <div class="container-box">
-                    <img src="https://m.media-amazon.com/images/M/MV5BMTYwMTA4MzgyNF5BMl5BanBnXkFtZTgwMjEyMjE0MDE@._V1_Ratio0.7273_AL_.jpg"
-                        alt="">
-                    <div class="text-container">
-                        <h2>Dallas Buyers Club</h2>
-                        <p>(2013)</p>
-                    </div>
-                </div>
-
-                <div class="container-box">
-                    <img src="https://m.media-amazon.com/images/M/MV5BMTYwMTA4MzgyNF5BMl5BanBnXkFtZTgwMjEyMjE0MDE@._V1_Ratio0.7273_AL_.jpg"
-                        alt="">
-                    <div class="text-container">
-                        <h2>Dallas Buyers Club</h2>
-                        <p>(2013)</p>
-                    </div>
-                </div>
-
-                <div class="container-box">
-                    <img src="https://m.media-amazon.com/images/M/MV5BMTYwMTA4MzgyNF5BMl5BanBnXkFtZTgwMjEyMjE0MDE@._V1_Ratio0.7273_AL_.jpg"
-                        alt="">
-                    <div class="text-container">
-                        <h2>Dallas Buyers Club</h2>
-                        <p>(2013)</p>
-                    </div>
                 </div> -->
+
+
 
 
             </div>

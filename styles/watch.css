@@ -15,7 +15,7 @@
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  margin-left: 0.8rem;
+  margin-left: 1rem;
   color: #a1a1a1;
 }
 
@@ -23,7 +23,7 @@
   width: 100%;
   border-radius: 15px;
   border: none;
-  padding: 0.4rem 0 0.3rem 2.3rem;
+  padding: 0.4rem 0 0.3rem 2rem;
   outline: none;
 }
 
@@ -115,7 +115,7 @@
   padding: 90px 1rem;
   max-width: 1400px;
   height: 100%;
-  border: 1px solid blue;
+  border: 2px solid blue;
 }
 
 .bottom-section .inner-container .movies-container {
@@ -152,10 +152,10 @@
 
 .bottom-section .container-box .text-container h2 {
   font-family: "Fjalla One", sans-serif;
-  font-size: 1.3rem;
 }
 
 .bottom-section .container-box .text-container p {
+  font-size: .9rem;
   font-family: "Poppins", sans-serif;
 }
 
@@ -173,7 +173,7 @@ button, input, select {
   border-radius: 3px;
 }
 
-#btn, #top250, #random, #trending {
+#btn, #top250, #random, #trending-movies {
   background: #24305e;
   color: white;
   cursor: pointer;
@@ -197,7 +197,7 @@ button, input, select {
     width: 100%;
   }
   .bottom-section .container-box .text-container {
-    max-width: 350px;
+    max-width: 300px;
     text-align: center;
   }
   .bottom-section .container-box .text-container h2 {
@@ -208,7 +208,7 @@ button, input, select {
   }
   .bottom-section .container-box img {
     width: 100%;
-    max-width: 350px;
+    max-width: 300px;
     border-radius: 15px;
     margin-right: 0;
   }

@@ -13,9 +13,6 @@
 // // - let user search for a title, actor, genre, or streaming platform
 // // - let user check which streaming platform they can find that certain thing
 
-
-
-
 // document.addEventListener("keydown", (e) => {
 //   if (e.key === "Enter") {
 //     console.log("Enter key was pressed.");
@@ -44,8 +41,6 @@
 // append "text-container" to "container-box" AFTER appending IMG tag
 
 const moviesContainer = document.getElementById("movies-container");
-
-
 
 const top250 = document.getElementById("top250");
 
@@ -84,29 +79,22 @@ const top250 = document.getElementById("top250");
 //     .catch((err) => console.log(err));
 // });
 
+function poster(posterPath) {
+  `https://image.tmdb.org/t/p/original${obj.poster_path}`;
+}
 
-
-const random = document.getElementById("random");
-
-
-document.getElementById("btn").addEventListener("click", () => {
+function searchMovie() {
   moviesContainer.innerText = "";
   const searchInput = document.getElementById("input").value;
   fetch(
-    `https://api.themoviedb.org/3/search/movie?api_key=API_KEY&language=en-US&page=1&include_adult=false&query=${searchInput}`
+    `https://api.themoviedb.org/3/search/movie?api_key=83bc98823c4c710c5443011ef8e9dbf9&language=en-US&page=1&include_adult=false&query=${searchInput}`
   )
     .then((res) => res.json())
     .then((data) => {
-      // console.log(data);
-
-
-
       // sort by amount of votes
-      data.results.sort((a, b) => a.vote_count - b.vote_count).reverse()
+      data.results.sort((a, b) => a.vote_count - b.vote_count).reverse();
 
       data.results.forEach((obj) => {
-        // console.log(obj)
-
         const movieBox = document.createElement("div");
         movieBox.classList.add("container-box");
         const textContainer = document.createElement("div");
@@ -118,25 +106,121 @@ document.getElementById("btn").addEventListener("click", () => {
         let overview = document.createTextNode(obj.overview);
         img.src = `https://image.tmdb.org/t/p/original${obj.poster_path}`;
 
-        // movieBox.appendChild(img);
-
-
         h2.appendChild(title);
         p.appendChild(overview);
-        movieBox.appendChild(img)
+        movieBox.appendChild(img);
         textContainer.appendChild(h2);
         textContainer.appendChild(p);
-        // console.log(obj.title);
         movieBox.appendChild(textContainer);
         moviesContainer.appendChild(movieBox);
-        // const cast = document.createTextNode(obj.crew);
-        // const p2 = document.createElement("p");
-        // p2.appendChild(cast);
-        // textContainer.appendChild(p2);
-
-        // let title_id = obj.id;
       });
     })
     .catch((err) => console.log(err));
+}
+
+const random = document.getElementById("random");
+const searchBtn = document.getElementById("btn");
+const userInput = document.getElementById("input");
+
+searchBtn.addEventListener("click", () => {
+  searchMovie();
 });
 
+userInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    searchMovie();
+  }
+});
+
+const trendingMovies = document.getElementById("trending-movies");
+// trendingMovies.addEventListener("click", () => {
+//   fetch(
+//     `https://api.themoviedb.org/3/trending/movie/day?api_key=83bc98823c4c710c5443011ef8e9dbf9`
+//   )
+//     .then((res) => res.json())
+//     .then((data) => {
+//       searchTrending();
+//     });
+// });
+
+function searchTrending() {
+  // fetch(
+  //   `https://api.themoviedb.org/3/trending/movie/day?api_key=83bc98823c4c710c5443011ef8e9dbf9`
+  // )
+  //   .then((res) => res.json())
+  //   .then((data) => {
+  //     // console.log(data.results.length);
+  //     data.results.forEach((obj, index) => {
+  //       // console.log(obj);
+  //       const movieBox = document.createElement("div");
+  //       movieBox.classList.add("container-box");
+  //       const textContainer = document.createElement("div");
+  //       const img = document.createElement("img");
+  //       const h2 = document.createElement("h2");
+  //       const p = document.createElement("p");
+  //       textContainer.classList.add("text-container");
+  //       let title = document.createTextNode(`${index + 1}. ${obj.title}`);
+  //       let overview = document.createTextNode(obj.overview);
+  //       img.src = `https://image.tmdb.org/t/p/original${obj.poster_path}`;
+  //       h2.appendChild(title);
+  //       p.appendChild(overview);
+  //       movieBox.appendChild(img);
+  //       textContainer.appendChild(h2);
+  //       textContainer.appendChild(p);
+  //       movieBox.appendChild(textContainer);
+  //       moviesContainer.appendChild(movieBox);
+  //     });
+  //   });
+}
+
+const urls = [
+  `https://api.themoviedb.org/3/trending/movie/day?api_key=83bc98823c4c710c5443011ef8e9dbf9`,
+  `https://api.themoviedb.org/3/genre/movie/list?api_key=83bc98823c4c710c5443011ef8e9dbf9`,
+];
+
+trendingMovies.addEventListener("click", fetchPromises);
+
+function fetchPromises() {
+  Promise.all(urls).then((results) => {
+    results.forEach((result) => {
+      fetch(result)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data.genres);
+
+          // const genres = data.genres.map((x) => {
+          //   return { id: x.id, name: x.name };
+          // });
+          // console.log(genres)
+
+          data.results.forEach((movieObj, index) => {
+            // searchTrending();
+            // console.log(movieObj);
+            // console.log(index)
+
+            const genres = data.genres.map(x => x);
+            console.log(genres)
+
+            // console.log(obj);
+            // const movieBox = document.createElement("div");
+            // movieBox.classList.add("container-box");
+            // const textContainer = document.createElement("div");
+            // const img = document.createElement("img");
+            // const h2 = document.createElement("h2");
+            // const p = document.createElement("p");
+            // textContainer.classList.add("text-container");
+            // let title = document.createTextNode(`${index + 1}. ${movieObj.title}`);
+            // let overview = document.createTextNode(movieObj.overview);
+            // img.src = `https://image.tmdb.org/t/p/original${movieObj.poster_path}`;
+            // h2.appendChild(title);
+            // p.appendChild(overview);
+            // movieBox.appendChild(img);
+            // textContainer.appendChild(h2);
+            // textContainer.appendChild(p);
+            // movieBox.appendChild(textContainer);
+            // moviesContainer.appendChild(movieBox);
+          });
+        });
+    });
+  });
+}

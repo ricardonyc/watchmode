@@ -303,10 +303,10 @@ body {
     border-radius: 10px;
     position: relative;
     background: white;
-    -webkit-transition: background 400ms ease-in-out, -webkit-transform 400ms ease-in-out, -webkit-box-shadow 400ms ease-in-out;
-    transition: background 400ms ease-in-out, -webkit-transform 400ms ease-in-out, -webkit-box-shadow 400ms ease-in-out;
-    transition: transform 400ms ease-in-out, background 400ms ease-in-out, box-shadow 400ms ease-in-out;
-    transition: transform 400ms ease-in-out, background 400ms ease-in-out, box-shadow 400ms ease-in-out, -webkit-transform 400ms ease-in-out, -webkit-box-shadow 400ms ease-in-out;
+    -webkit-transition: background 400ms ease-in-out, -webkit-transform 400ms ease-in-out, -webkit-box-shadow 400ms ease-in-out;
+    transition: background 400ms ease-in-out, -webkit-transform 400ms ease-in-out, -webkit-box-shadow 400ms ease-in-out;
+    transition: transform 400ms ease-in-out, background 400ms ease-in-out, box-shadow 400ms ease-in-out;
+    transition: transform 400ms ease-in-out, background 400ms ease-in-out, box-shadow 400ms ease-in-out, -webkit-transform 400ms ease-in-out, -webkit-box-shadow 400ms ease-in-out;
   }
   .navbar .btn.open .menu-bars {
     -webkit-transform: translateX(-50px);
@@ -328,8 +328,8 @@ body {
     background: white;
     -webkit-transition: width 400ms ease-in-out, background 400ms ease-in-out, -webkit-transform 400ms ease-in-out;
     transition: width 400ms ease-in-out, background 400ms ease-in-out, -webkit-transform 400ms ease-in-out;
-    transition: width 400ms ease-in-out, transform 400ms ease-in-out, background 400ms ease-in-out;
-    transition: width 400ms ease-in-out, transform 400ms ease-in-out, background 400ms ease-in-out, -webkit-transform 400ms ease-in-out;
+    transition: width 400ms ease-in-out, transform 400ms ease-in-out, background 400ms ease-in-out;
+    transition: width 400ms ease-in-out, transform 400ms ease-in-out, background 400ms ease-in-out, -webkit-transform 400ms ease-in-out;
     opacity: 1;
   }
   .navbar .btn.open .menu-bars::before {
@@ -372,7 +372,7 @@ body {
   }
   .mid-section .mid-container {
     grid: 1fr 1fr / 1fr;
-        grid-template-areas: "svg" "text";
+        grid-template-areas: "svg" "text";
   }
   .mid-section .mid-container .svg {
     max-width: 400px;

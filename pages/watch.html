@@ -13,6 +13,7 @@
 
 <body id='watch-body' class='watch-body'>
 
+    <div id="overlay-blur"></div>
 
 
     <section class="nav-container">
@@ -20,7 +21,8 @@
             <h1>WatchMode</h1>
             <div class="search-container">
                 <i class="fa fa-search" id='search-icon'></i>
-                <input type="text" id='search' class='nav-search' placeholder='Search movies, tv shows, genres...'>
+                <input type="text" id='search' class='nav-search' placeholder='Search movies, tv shows, genres...'
+                    autocomplete="off">
             </div>
             <ul>
                 <li><a href="#">Home</a></li>
@@ -35,20 +37,15 @@
 
 
 
-    <!-- <div class="overlay-background hidden"></div> -->
     <section class="bottom-section">
         <div class="inner-container" id='inner-container'>
-            <!-- <div class="overlay-background"></div> -->
-            <!-- <div class="overlay hidden" id='overlay'>
-                <i class="fa fa-times" id='close-module'></i>
-            </div> -->
             <div class="input-section">
-                <!-- <input type="text" id="input"> -->
-                <!-- <button id="btn">Search</button> -->
                 <button id='open'>OPEN</button>
                 <button id='top250'>IMDB's Top 250 Movies</button>
                 <button id="trending-movies">Trending Movies</button>
                 <button id='trending-people'>Trending People</button>
+            </div>
+            <div class="heading-text" id='heading-text'>
             </div>
             <div class="movies-container" id='movies-container'>
                 <!-- <div class="container-box">
@@ -59,43 +56,7 @@
                         <p>(2002)</p>
                     </div>
                 </div>
-
-                <div class="container-box">
-                    <img src="https://imdb-api.com/images/original/MV5BNzQxNTIyODAxMV5BMl5BanBnXkFtZTgwNzQyMDA3OTE@._V1_Ratio0.7273_AL_.jpg"
-                        alt="">
-                    <div class="text-container">
-                        <h2>Moonlightsdfsdfsdfsr rt ert  wef wef wef wef wef rthg rtyhrgrgr fgre f</h2>
-                        <p>(2016)</p>
-                    </div>
-                </div>
-
-                <div class="container-box">
-                    <img src="https://imdb-api.com/images/original/MV5BMjA1Nzk0OTM2OF5BMl5BanBnXkFtZTgwNjU2NjEwMDE@._V1_Ratio0.7273_AL_.jpg"
-                        alt="">
-                    <div class="text-container">
-                        <h2>Her dfg dfg ert sewrw er  ef wef wef wefw efwefw efwef wefwefw ef</h2>
-                        <p>(2013)</p>
-                    </div>
-                </div>
-
-                <div class="container-box">
-                    <img src="https://imdb-api.com/images/original/MV5BZDdiZTAwYzAtMDI3Ni00OTRjLTkzN2UtMGE3MDMyZmU4NTU4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_Ratio0.7273_AL_.jpg"
-                        alt="">
-                    <div class="text-container">
-                        <h2>Before Sunrise</h2>
-                        <p>(1995)</p>
-                    </div>
-                </div>
-
-                <div class="container-box">
-                    <img src="https://imdb-api.com/images/original/MV5BMTQ1MjAwNTM5Ml5BMl5BanBnXkFtZTYwNDM0MTc3._V1_Ratio0.7273_AL_.jpg"
-                        alt="">
-                    <div class="text-container">
-                        <h2>Before Sunset</h2>
-                        <p>(2004)</p>
-                    </div>
-                </div>
-
+    
                 <div class="container-box">
                     <img src="https://imdb-api.com/images/original/MV5BMjA5NzgxODE2NF5BMl5BanBnXkFtZTcwNTI1NTI0OQ@@._V1_Ratio0.7273_AL_.jpg"
                         alt="">
@@ -103,11 +64,7 @@
                         <h2>Before Midnight</h2>
                         <p>(2013)</p>
                     </div>
-                </div> -->
-
-
-
-
+                </div>  -->
             </div>
         </div>
     </section>

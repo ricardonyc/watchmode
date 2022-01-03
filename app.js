@@ -1,3 +1,6 @@
+// containers
+const headingContainer = document.getElementById("heading-text");
+const moviesContainer = document.getElementById("movies-container");
 // const closeModule = document.getElementById("close-module");
 // const overlay = document.getElementById("overlay");
 // const openModule = document.getElementById("open");
@@ -25,7 +28,18 @@
 // //   return newArr;
 // // }
 
-const moviesContainer = document.getElementById("movies-container");
+function headingText(text, ...iconClasses) {
+  const classes = iconClasses;
+  const trendingIcon = document.createElement("i");
+  for (let i = 0; i < classes.length; i++) {
+    trendingIcon.classList.add(classes[i]);
+  }
+  const topText = document.createTextNode(text);
+  const topH2 = document.createElement("h2");
+  topH2.appendChild(topText);
+  headingContainer.appendChild(trendingIcon);
+  headingContainer.appendChild(topH2);
+}
 
 const top250 = document.getElementById("top250");
 
@@ -91,11 +105,12 @@ trendingMovies.addEventListener("click", () => {
   )
     .then((res) => res.json())
     .then((data) => {
-      searchTrending();
+      searchTrendingMovies();
     });
 });
 
-function searchTrending() {
+function searchTrendingMovies() {
+  headingContainer.innerText = "";
   moviesContainer.innerText = "";
   trendingPeople.style.backgroundColor = "";
   trendingPeople.style.color = "";
@@ -116,7 +131,7 @@ function searchTrending() {
         const h2 = document.createElement("h2");
         const p = document.createElement("p");
         textContainer.classList.add("text-container");
-        let title = document.createTextNode(`${index + 1}. ${obj.title}`);
+        let title = document.createTextNode(`#${index + 1} ${obj.title}`);
         let overview = document.createTextNode(obj.overview);
         img.src = `https://image.tmdb.org/t/p/original${obj.poster_path}`;
         h2.appendChild(title);
@@ -158,24 +173,27 @@ const urls = [
 
 const trendingPeople = document.getElementById("trending-people");
 trendingPeople.addEventListener("click", () => {
+  // remove everything currently in the movies container
+  headingContainer.innerText = "";
   moviesContainer.innerText = "";
+  // remove and add color to currently selected button
   trendingMovies.style.backgroundColor = "";
   trendingMovies.style.color = "";
   trendingPeople.style.backgroundColor = "#a8d0e6";
   trendingPeople.style.color = "black";
+  // heading title
+  headingText("Top 20 Trending People", "fa", "fa-arrow-circle-up");
 
   fetch(
     `https://api.themoviedb.org/3/person/popular?api_key=83bc98823c4c710c5443011ef8e9dbf9`
   )
     .then((res) => res.json())
     .then((data) => {
-
-       // overlay blurred background
-       const overlayBackground = document.createElement("div")
-       overlayBackground.classList.add("overlay-background")
-       overlayBackground.classList.add("hidden")
-       document.getElementById("watch-body").appendChild(overlayBackground)
-
+      // overlay blurred background
+      const overlayBackground = document.createElement("div");
+      overlayBackground.classList.add("overlay-background");
+      overlayBackground.classList.add("hidden");
+      document.getElementById("overlay-blur").appendChild(overlayBackground);
 
       data.results.forEach((obj, index) => {
         // console.log(obj);
@@ -187,7 +205,7 @@ trendingPeople.addEventListener("click", () => {
         const h2 = document.createElement("h2");
         const p = document.createElement("p");
         textContainer.classList.add("actor-text-container");
-        let name = document.createTextNode(`${index + 1}. ${obj.name}`);
+        let name = document.createTextNode(`#${index + 1} ${obj.name}`);
         // let overview = document.createTextNode(obj.overview);
         img.src = `https://image.tmdb.org/t/p/original${obj.profile_path}`;
 
@@ -204,32 +222,36 @@ trendingPeople.addEventListener("click", () => {
         button.style.cursor = "pointer";
         button.appendChild(btnText);
 
-        //overlay
+        // overlay
         const overlay = document.createElement("div");
         document.getElementById("inner-container").appendChild(overlay);
         overlay.setAttribute("id", "overlay");
         overlay.setAttribute("class", "hidden");
         overlay.classList.add("overlay");
-      
-
-        // document.getElementById("watch-body").appendChild(overlayBackground)
+        // overlay background event listener to close
+        overlayBackground.addEventListener("click", () => {
+          overlayBackground.classList.add("hidden");
+          overlay.classList.add("hidden");
+        });
 
         // overlay closing button
         const icon = document.createElement("i");
         icon.classList.add("fa");
         icon.classList.add("fa-times");
-
+        // overlay event listener to close
         icon.addEventListener("click", () => {
           overlay.classList.add("hidden");
-          overlayBackground.classList.add("hidden")
+          overlayBackground.classList.add("hidden");
         });
 
         obj.known_for.forEach((movie, index) => {
           console.log(movie);
 
-          if (movie.title) {
+          if (movie.title || movie.original_name) {
             const h2 = document.createElement("h2");
-            const movieName = document.createTextNode(movie.title);
+            const movieName = document.createTextNode(
+              movie.title || movie.original_name
+            );
             h2.appendChild(movieName);
             overlay.appendChild(h2);
             const movieBox = document.createElement("div");
@@ -239,7 +261,7 @@ trendingPeople.addEventListener("click", () => {
             const h3 = document.createElement("h2");
             const p = document.createElement("p");
             textContainer.classList.add("text-container");
-            let title = document.createTextNode(`${index + 1}. ${movie.title}`);
+            let title = document.createTextNode(`#${index + 1} ${movie.title}`);
             let overview = document.createTextNode(movie.overview);
             img.src = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
             h3.appendChild(title);
@@ -255,7 +277,7 @@ trendingPeople.addEventListener("click", () => {
 
         button.addEventListener("click", () => {
           overlay.classList.remove("hidden");
-          overlayBackground.classList.remove("hidden")
+          overlayBackground.classList.remove("hidden");
         });
 
         h2.appendChild(name);
@@ -273,6 +295,7 @@ trendingPeople.addEventListener("click", () => {
 
 const searchIcon = document.getElementById("search-icon");
 const searchBar = document.getElementById("search");
+// erases text in navigation search bar when clicked
 searchBar.addEventListener("click", () => {
   searchBar.value = "";
 });
@@ -288,24 +311,33 @@ searchBar.addEventListener("keydown", (e) => {
 });
 
 function searching() {
+  trendingMovies.style.backgroundColor = "";
+  trendingMovies.style.color = "";
+  trendingPeople.style.backgroundColor = "";
+  trendingPeople.style.color = "";
+  headingContainer.innerText = "";
   moviesContainer.innerText = "";
   const searchBar = document.getElementById("search").value;
+  let resultsCount = 0;
 
   fetch(
     `https://api.themoviedb.org/3/search/multi?api_key=83bc98823c4c710c5443011ef8e9dbf9&language=en-US&page=1&query=${searchBar}`
   )
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       data.results.sort((a, b) => a.vote_count - b.vote_count).reverse();
 
-      data.results.forEach((obj) => {
+      data.results.forEach((obj, index) => {
+        resultsCount += index + 1;
+
         if (obj.media_type === "person") {
           console.log("It's a person!");
         } else if (obj.media_type === "tv" || obj.media_type === "movie") {
-          console.log("Movie or TV show found!");
+          // console.log("Movie or TV show found!");
 
-          // data.results.sort((a, b) => a.vote_count - b.vote_count).reverse();
+          // sorts movies based on vote count (popularity)
+          // console.log(data.results.sort((a, b) => a.vote_count - b.vote_count).reverse());
 
           const movieBox = document.createElement("div");
           movieBox.classList.add("container-box");
@@ -314,14 +346,16 @@ function searching() {
           const h2 = document.createElement("h2");
           const p = document.createElement("p");
           textContainer.classList.add("text-container");
-          let title = document.createTextNode(obj.title || obj.name);
+          let title = document.createTextNode(
+            `${index + 1}. ${obj.title}` || obj.name
+          );
           const overview = obj.overview
             ? document.createTextNode(obj.overview)
             : document.createTextNode("Description not available");
           // let overview = document.createTextNode(obj.overview);
           if (obj.poster_path === null) {
-            // img.src = images/movie0.svg
-            img.alt = "Image Not Available";
+            img.alt = "No image available";
+            img.classList.add("img-error");
           } else if (obj.poster_path) {
             img.src = `https://image.tmdb.org/t/p/original${obj.poster_path}`;
           }
@@ -336,6 +370,8 @@ function searching() {
         }
       });
     });
+
+  // headingText(`Results ${resultsCount}:`, "fa", "fa-check-square");
 }
 
 // searchBar.addEventListener("keydown", (e) => {

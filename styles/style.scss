@@ -268,7 +268,7 @@ body {
     }
 
     .btn.open .menu-bars::before {
-      width: 40px;
+      width: 35px;
     }
 
     .menu-bars::after {
@@ -469,12 +469,9 @@ body {
       width: 100%;
     }
 
-    img {
-      max-width: 400px;
-    }
-
     .fa-github {
       color: $dark-blue;
+      margin-top: 1rem;
       font-size: 4rem;
     }
   }

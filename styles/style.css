@@ -310,7 +310,7 @@ body {
   }
   .navbar .menu-bars {
     width: 35px;
-    height: 4px;
+    height: 6px;
     border-radius: 10px;
     position: relative;
     background: white;
@@ -328,7 +328,7 @@ body {
   .navbar .menu-bars::after {
     content: "";
     width: 35px;
-    height: 4px;
+    height: 6px;
     border-radius: 10px;
     position: absolute;
   }
@@ -351,7 +351,7 @@ body {
             transform: translateX(50px) rotate(45deg);
   }
   .navbar .btn.open .menu-bars::before {
-    width: 40px;
+    width: 35px;
   }
   .navbar .menu-bars::after {
     background: white;
@@ -562,12 +562,9 @@ body {
   width: 100%;
 }
 
-.contact-container .contact-inner-container img {
-  max-width: 400px;
-}
-
 .contact-container .contact-inner-container .fa-github {
   color: #24305e;
+  margin-top: 1rem;
   font-size: 4rem;
 }
 /*# sourceMappingURL=style.css.map */

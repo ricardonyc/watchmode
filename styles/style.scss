@@ -315,6 +315,7 @@ body {
       }
 
       .text-container {
+        width: 100%;
         @include flexCenter();
         position: relative;
         flex-direction: column;

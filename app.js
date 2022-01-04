@@ -72,15 +72,7 @@ function searchMovie() {
 const searchBtn = document.getElementById("btn");
 const userInput = document.getElementById("input");
 
-// searchBtn.addEventListener("click", () => {
-//   searchMovie();
-// });
 
-// userInput.addEventListener("keydown", (e) => {
-//   if (e.key === "Enter") {
-//     searchMovie();
-//   }
-// });
 
 const trendingMovies = document.getElementById("trending-movies");
 trendingMovies.addEventListener("click", () => {

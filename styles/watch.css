@@ -25,8 +25,12 @@
 }
 
 .search-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   position: relative;
-  width: 30%;
+  width: 40%;
+  margin: 0 auto 1rem auto;
 }
 
 .search-container .fa-search {
@@ -43,7 +47,7 @@
   width: 100%;
   border-radius: 15px;
   border: none;
-  padding: 0.4rem 0 0.3rem 2.2rem;
+  padding: 0.4rem 1rem 0.3rem 2.2rem;
   outline: none;
 }
 
@@ -107,7 +111,11 @@
   height: 100%;
 }
 
-.bottom-section .inner-container .heading-text {
+.bottom-section .inner-container .mobile-search-container {
+  display: none;
+}
+
+.bottom-section .heading-text {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -117,19 +125,19 @@
   margin-top: 1rem;
 }
 
-.bottom-section .inner-container .heading-text .fa-arrow-circle-up {
+.bottom-section .heading-text .fa-arrow-circle-up {
   margin-right: 0.5rem;
   color: #5dff5d;
   font-size: 2.5rem;
 }
 
-.bottom-section .inner-container .heading-text .fa-check-square {
+.bottom-section .heading-text .fa-check-square {
   margin-right: 0.5rem;
   color: white;
   font-size: 2rem;
 }
 
-.bottom-section .inner-container .movies-container {
+.bottom-section .movies-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -142,13 +150,13 @@
   margin-top: 1rem;
 }
 
-.bottom-section .inner-container .movies-container .fa-check-circle {
+.bottom-section .movies-container .fa-check-circle {
   color: #5dff5d;
   font-size: 1.1rem;
-  margin-left: .5rem;
+  margin-left: 0.5rem;
 }
 
-.bottom-section .container-box {
+.container-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -156,7 +164,7 @@
   width: 100%;
 }
 
-.bottom-section .container-box .text-container {
+.container-box .text-container {
   padding: 0.3rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -167,16 +175,16 @@
           flex-direction: column;
 }
 
-.bottom-section .container-box .text-container h2 {
+.container-box .text-container h2 {
   font-family: "Fjalla One", sans-serif;
 }
 
-.bottom-section .container-box .text-container p {
+.container-box .text-container p {
   font-size: 0.9rem;
   font-family: "Poppins", sans-serif;
 }
 
-.bottom-section .container-box img {
+.container-box img {
   width: 100%;
   max-width: 220px;
   border-radius: 15px;
@@ -208,9 +216,12 @@ select {
 }
 
 .actor-box .actor-text-container {
+  max-width: 200px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -218,7 +229,7 @@ select {
 }
 
 .actor-box .actor-text-container h2 {
-  font-size: 1.3rem;
+  font-size: 1.15rem;
   font-family: "Fjalla One", sans-serif;
 }
 
@@ -230,7 +241,7 @@ select {
 .actor-box img {
   width: 100%;
   max-width: 200px;
-  border-radius: 15px;
+  border-radius: 5px;
 }
 
 .overlay-background {
@@ -252,7 +263,7 @@ select {
   padding: 1rem;
   width: 100%;
   max-width: 700px;
-  height: 500px;
+  height: 600px;
   position: fixed;
   margin: auto;
   top: 0;
@@ -285,6 +296,31 @@ select {
 }
 
 @media screen and (max-width: 700px) {
+  .search-container {
+    width: 80%;
+  }
+  .bottom-section .inner-container .mobile-search-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    width: 70%;
+    margin: 0 auto .5rem auto;
+  }
+  .bottom-section .inner-container .mobile-search-container #mobile-search-icon {
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+  .bottom-section .inner-container .mobile-search-container .mobile-searchbar {
+    padding: .3rem .6rem .2rem 2rem;
+    width: 100%;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+  }
   .bottom-section .inner-container .overlay {
     width: 90%;
     height: 50%;
@@ -317,13 +353,18 @@ select {
   }
   .bottom-section .container-box .text-container h2 {
     font-size: 1.5rem;
+    margin: .5rem 0;
   }
   .bottom-section .container-box .text-container p {
     font-size: 0.9rem;
+    margin: .2rem 0;
+  }
+  .bottom-section .container-box .text-container h3 {
+    margin: .2rem 0;
   }
   .bottom-section .container-box img {
     width: 100%;
-    max-width: 250px;
+    max-width: 350px;
     border-radius: 15px;
     margin-right: 0;
   }
@@ -384,5 +425,10 @@ select {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
+}
+
+.fa-film {
+  margin-right: 0.5rem;
+  font-size: 1.5rem;
 }
 /*# sourceMappingURL=watch.css.map */

@@ -15,33 +15,6 @@ function hideLoading() {
   loader.classList.remove("display");
 }
 
-// const closeModule = document.getElementById("close-module");
-// const overlay = document.getElementById("overlay");
-// const openModule = document.getElementById("open");
-
-// openModule.addEventListener("click", () => {
-//   overlay.classList.remove("hidden");
-// });
-
-// closeModule.addEventListener("click", () => {
-//   overlay.classList.add("hidden");
-// });
-
-// You shall use the TMDB logo to identify your use of the TMDB APIs.
-
-// // require("dotenv").config()
-// // const key = process.env.API_KEY;
-// // console.log(key);
-
-// // function getRandomElements(array, amount) {
-// //   let newArr = [];
-// //   for (let i = 0; i < amount; i++) {
-// //     let randomIndex = Math.floor(Math.random() * array.length);
-// //     newArr.push(array[randomIndex]);
-// //   }
-// //   return newArr;
-// // }
-
 function headingText(text, ...iconClasses) {
   const classes = iconClasses;
   const trendingIcon = document.createElement("i");
@@ -54,11 +27,6 @@ function headingText(text, ...iconClasses) {
   headingContainer.appendChild(trendingIcon);
   headingContainer.appendChild(topH2);
 }
-
-const top250 = document.getElementById("top250");
-
-// top250.addEventListener("click", () => {
-// });
 
 function poster(posterPath) {
   `https://image.tmdb.org/t/p/original${obj.poster_path}`;
@@ -124,29 +92,38 @@ trendingMovies.addEventListener("click", () => {
   //   .then((res) => res.json())
   //   .then((data) => {
   //     hideLoading();
-  searchTrendingMovies();
+  searchTrending(
+    `https://api.themoviedb.org/3/trending/movie/day?api_key=83bc98823c4c710c5443011ef8e9dbf9`,
+    "Movies"
+  );
   //   });
 });
 
-function searchTrendingMovies(url) {
+function searchTrending(url, trendingText) {
   headingContainer.innerText = "";
   moviesContainer.innerText = "";
-  trendingTv.style.backgroundColor = "";
-  trendingTv.style.color = "";
-  trendingPeople.style.backgroundColor = "";
-  trendingPeople.style.color = "";
-  trendingMovies.style.backgroundColor = "#a8d0e6";
-  trendingMovies.style.color = "black";
-  headingText("Top 20 Trending Movies", "fa", "fa-arrow-circle-up");
+  if (trendingText === "Movies") {
+    trendingTv.style.backgroundColor = "";
+    trendingTv.style.color = "";
+    trendingPeople.style.backgroundColor = "";
+    trendingPeople.style.color = "";
+    trendingMovies.style.backgroundColor = "#a8d0e6";
+    trendingMovies.style.color = "black";
+  } else if (trendingText === "TV Shows") {
+    trendingTv.style.backgroundColor = "#a8d0e6";
+    trendingTv.style.color = "black";
+    trendingPeople.style.backgroundColor = "";
+    trendingPeople.style.color = "";
+    trendingMovies.style.backgroundColor = "";
+    trendingMovies.style.color = "";
+  }
+  headingText(`Top 20 Trending ${trendingText}`, "fa", "fa-arrow-circle-up");
 
-  fetch(
-    `https://api.themoviedb.org/3/trending/movie/day?api_key=83bc98823c4c710c5443011ef8e9dbf9`
-  )
+  fetch(url)
     .then((res) => res.json())
     .then((data) => {
       // console.log(data.results.length);
       data.results.forEach((obj, index) => {
-        console.log(obj);
         const movieBox = document.createElement("div");
         movieBox.classList.add("container-box");
         const textContainer = document.createElement("div");
@@ -155,13 +132,15 @@ function searchTrendingMovies(url) {
         const p = document.createElement("p");
         textContainer.classList.add("text-container");
         // media title
-        let title = document.createTextNode(`#${index + 1} ${obj.title}`);
+        let title = document.createTextNode(
+          obj.title ? `#${index + 1} ${obj.title}` : `#${index + 1} ${obj.name}`
+        );
         // media overview
         let overview = document.createTextNode(obj.overview);
         // poster image
         img.src = `https://image.tmdb.org/t/p/original${obj.poster_path}`;
-
-        // media type
+        // mediaAndVoting(obj);
+        // // media type
         const mediaType = document.createTextNode("Movie");
         const h4mediaType = document.createElement("h4");
         h4mediaType.appendChild(mediaType);
@@ -175,12 +154,14 @@ function searchTrendingMovies(url) {
           const checkMark = document.createElement("i");
           checkMark.classList.add("fa");
           checkMark.classList.add("fa-check-circle");
-          h4.appendChild(checkMark)
+          h4.appendChild(checkMark);
         }
 
         const h4releaseTag = document.createElement("h4");
         const h4releaseDate = document.createTextNode(
-          `Release date: ${obj.release_date}`
+          obj.release_date
+            ? `Release date: ${obj.release_date}`
+            : `Release date: ${obj.first_air_date}`
         );
         h4releaseTag.appendChild(h4releaseDate);
 
@@ -200,96 +181,11 @@ function searchTrendingMovies(url) {
 
 const trendingTv = document.getElementById("trending-tv");
 trendingTv.addEventListener("click", () => {
-  // searchTrendingMovies()
-  headingContainer.innerText = "";
-  moviesContainer.innerText = "";
-  trendingPeople.style.backgroundColor = "";
-  trendingPeople.style.color = "";
-  trendingMovies.style.backgroundColor = "";
-  trendingMovies.style.color = "";
-  trendingTv.style.backgroundColor = "#a8d0e6";
-  trendingTv.style.color = "black";
-  headingText("Top 20 Trending TV Shows", "fa", "fa-arrow-circle-up");
-
-  fetch(
-    `https://api.themoviedb.org/3/tv/popular?api_key=83bc98823c4c710c5443011ef8e9dbf9&language=en-US&page=1`
-  )
-    .then((res) => res.json())
-    .then((data) => {
-      // console.log(data.results.length);
-      data.results.forEach((obj, index) => {
-        console.log(obj);
-        const movieBox = document.createElement("div");
-        movieBox.classList.add("container-box");
-        const textContainer = document.createElement("div");
-        const img = document.createElement("img");
-        const h2 = document.createElement("h2");
-        const p = document.createElement("p");
-        textContainer.classList.add("text-container");
-        // media title
-        let title = document.createTextNode(`#${index + 1} ${obj.name}`);
-        // media overview
-        let overview = document.createTextNode(obj.overview);
-        // poster image
-        img.src = `https://image.tmdb.org/t/p/original${obj.poster_path}`;
-
-        // media type
-        const mediaType = document.createTextNode("TV Show");
-        const h4mediaType = document.createElement("h4");
-        h4mediaType.appendChild(mediaType);
-        // vote average
-        const h4 = document.createElement("h4");
-        const rating = document.createTextNode(
-          `TMDB Rating: 10/${obj.vote_average}`
-        );
-        h4.appendChild(rating);
-        if (obj.vote_count > 500 && obj.vote_average >= 7.5) {
-          const checkMark = document.createElement("i");
-          checkMark.classList.add("fa");
-          checkMark.classList.add("fa-check-circle");
-          h4.appendChild(checkMark)
-        }
-
-        const h4releaseTag = document.createElement("h4");
-        const h4releaseDate = document.createTextNode(
-          `Release date: ${obj.first_air_date}`
-        );
-        h4releaseTag.appendChild(h4releaseDate);
-
-        h2.appendChild(title);
-        p.appendChild(overview);
-        movieBox.appendChild(img);
-        textContainer.appendChild(h2);
-        textContainer.appendChild(p);
-        textContainer.appendChild(h4);
-        textContainer.appendChild(h4releaseTag);
-        textContainer.appendChild(h4mediaType);
-        movieBox.appendChild(textContainer);
-        moviesContainer.appendChild(movieBox);
-      });
-    });
+  searchTrending(
+    "https://api.themoviedb.org/3/tv/popular?api_key=83bc98823c4c710c5443011ef8e9dbf9&language=en-US&page=1",
+    "TV Shows"
+  );
 });
-
-const urls = [
-  `https://api.themoviedb.org/3/trending/movie/day?api_key=83bc98823c4c710c5443011ef8e9dbf9`,
-  `https://api.themoviedb.org/3/genre/movie/list?api_key=83bc98823c4c710c5443011ef8e9dbf9`,
-];
-
-// document.getElementById("random").addEventListener("click", fetchPromises);
-
-// function fetchPromises() {
-//   Promise.all(urls).then((results) => {
-//     results.forEach((result) => {
-//       fetch(result)
-//         .then((res) => res.json())
-//         .then((data) => {
-//           console.log(data)
-//           // console.log(data.genres);
-
-//         });
-//     });
-//   });
-// }
 
 const trendingPeople = document.getElementById("trending-people");
 trendingPeople.addEventListener("click", () => {
@@ -320,7 +216,6 @@ trendingPeople.addEventListener("click", () => {
       document.getElementById("overlay-blur").appendChild(overlayBackground);
 
       data.results.forEach((obj, index) => {
-        console.log(obj);
 
         const movieBox = document.createElement("div");
         movieBox.classList.add("actor-box");
@@ -330,7 +225,6 @@ trendingPeople.addEventListener("click", () => {
         const p = document.createElement("p");
         textContainer.classList.add("actor-text-container");
         let name = document.createTextNode(`#${index + 1} ${obj.name}`);
-        // let overview = document.createTextNode(obj.overview);
         img.src = `https://image.tmdb.org/t/p/original${obj.profile_path}`;
 
         const a = document.createElement("a");
@@ -424,7 +318,6 @@ trendingPeople.addEventListener("click", () => {
         });
 
         h2.appendChild(name);
-        // p.appendChild(overview);
         movieBox.appendChild(img);
         textContainer.appendChild(h2);
         textContainer.appendChild(p);
@@ -432,7 +325,6 @@ trendingPeople.addEventListener("click", () => {
         movieBox.appendChild(textContainer);
         moviesContainer.appendChild(movieBox);
       });
-      // https://image.tmdb.org/t/p/original/${profile_path}
     });
 });
 
@@ -453,6 +345,7 @@ searchBar.addEventListener("keydown", (e) => {
   }
 });
 
+
 function searching() {
   trendingMovies.style.backgroundColor = "";
   trendingMovies.style.color = "";
@@ -467,39 +360,25 @@ function searching() {
   )
     .then((res) => res.json())
     .then((data) => {
+      // sort by vote count
       data.results.sort((a, b) => a.vote_count - b.vote_count).reverse();
-      const personContainer = document.createElement("div");
 
-      const peopleIcon = document.createElement("i");
-      peopleIcon.classList.add("fa");
-      peopleIcon.classList.add("fa-film");
+      const filmIcon = document.createElement("i");
+      filmIcon.classList.add("fa");
+      filmIcon.classList.add("fa-film");
       const topText = document.createTextNode("Movies & TV Shows: ");
       const topH2 = document.createElement("h2");
       topH2.appendChild(topText);
-      headingContainer.appendChild(peopleIcon);
+      headingContainer.appendChild(filmIcon);
       headingContainer.appendChild(topH2);
-      // personContainer.classList.add("person-container");
 
-      // const peopleIcon = document.createElement("i");
-      // peopleIcon.classList.add("fa");
-      // peopleIcon.classList.add("fa-users");
-      // const topText = document.createTextNode("People:");
-      // const topH2 = document.createElement("h2");
-      // topH2.appendChild(topText);
-      // headingContainer.appendChild(peopleIcon);
-      // headingContainer.appendChild(topH2);
-      // personContainer.appendChild(headingContainer);
       data.results.forEach((obj, index) => {
         // console.log(obj);
         if (obj.media_type === "person") {
           // console.log(obj);
           console.log("person found");
         } else if (obj.media_type === "tv" || obj.media_type === "movie") {
-          console.log(obj);
           // console.log("Movie or TV show found!");
-
-          // sorts movies based on vote count (popularity)
-          // console.log(data.results.sort((a, b) => a.vote_count - b.vote_count).reverse());
 
           const movieBox = document.createElement("div");
           movieBox.classList.add("container-box");
@@ -512,7 +391,6 @@ function searching() {
           const overview = obj.overview
             ? document.createTextNode(obj.overview)
             : document.createTextNode("Description not available");
-          // let overview = document.createTextNode(obj.overview);
           if (obj.poster_path === null) {
             img.alt = "No image available";
             img.classList.add("img-error");
@@ -536,40 +414,4 @@ function searching() {
         }
       });
     });
-
-  // headingText(`Results ${resultsCount}:`, "fa", "fa-check-square");
 }
-
-// searchBar.addEventListener("keydown", (e) => {
-//   if(e.key === 'Enter'){
-//     searchMovie();
-//   }
-// })
-
-// moviesContainer.innerText = "";
-// const searchInput = document.getElementById("input").value;
-
-// https://api.themoviedb.org/3/search/multi?api_key=83bc98823c4c710c5443011ef8e9dbf9&language=en-US&page=1&query=${searchInput}
-// console.log(data)
-// sort by amount of votes
-// data.results.sort((a, b) => a.vote_count - b.vote_count).reverse();
-
-// data.results.forEach((obj) => {
-//   const movieBox = document.createElement("div");
-//   movieBox.classList.add("container-box");
-//   const textContainer = document.createElement("div");
-//   const img = document.createElement("img");
-//   const h2 = document.createElement("h2");
-//   const p = document.createElement("p");
-//   textContainer.classList.add("text-container");
-//   let title = document.createTextNode(obj.title);
-//   let overview = document.createTextNode(obj.overview);
-//   img.src = `https://image.tmdb.org/t/p/original${obj.poster_path}`;
-
-//   h2.appendChild(title);
-//   p.appendChild(overview);
-//   movieBox.appendChild(img);
-//   textContainer.appendChild(h2);
-//   textContainer.appendChild(p);
-//   movieBox.appendChild(textContainer);
-//   moviesContainer.appendChild(movieBox);

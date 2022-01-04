@@ -11,6 +11,10 @@
   background-color: #555;
 }
 
+* {
+  color: #24305e;
+}
+
 .watch-body {
   min-height: 100vh;
   background: #f76c6c;

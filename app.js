@@ -320,7 +320,7 @@ trendingPeople.addEventListener("click", () => {
       document.getElementById("overlay-blur").appendChild(overlayBackground);
 
       data.results.forEach((obj, index) => {
-        // console.log(obj);
+        console.log(obj);
 
         const movieBox = document.createElement("div");
         movieBox.classList.add("actor-box");
@@ -369,7 +369,7 @@ trendingPeople.addEventListener("click", () => {
         });
 
         obj.known_for.forEach((movie, index) => {
-          console.log(movie);
+          // console.log(movie);
 
           if (movie.title || movie.original_name) {
             const h2 = document.createElement("h2");

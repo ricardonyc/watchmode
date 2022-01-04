@@ -187,7 +187,8 @@ select {
 #random,
 #trending-movies,
 #trending-people,
-#open {
+#open,
+#trending-tv {
   background: #24305e;
   color: white;
   cursor: pointer;

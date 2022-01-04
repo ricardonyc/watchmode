@@ -118,23 +118,27 @@ const trendingMovies = document.getElementById("trending-movies");
 trendingMovies.addEventListener("click", () => {
   displayLoading();
 
-  fetch(
-    `https://api.themoviedb.org/3/trending/movie/day?api_key=83bc98823c4c710c5443011ef8e9dbf9`
-  )
-    .then((res) => res.json())
-    .then((data) => {
-      hideLoading();
+  // fetch(
+  //   `https://api.themoviedb.org/3/trending/movie/day?api_key=83bc98823c4c710c5443011ef8e9dbf9`
+  // )
+  //   .then((res) => res.json())
+  //   .then((data) => {
+  //     hideLoading();
       searchTrendingMovies();
-    });
+  //   });
 });
 
-function searchTrendingMovies() {
+function searchTrendingMovies(url) {
   headingContainer.innerText = "";
   moviesContainer.innerText = "";
+  trendingTv.style.backgroundColor = ''
+  trendingTv.style.color = ''
   trendingPeople.style.backgroundColor = "";
   trendingPeople.style.color = "";
   trendingMovies.style.backgroundColor = "#a8d0e6";
   trendingMovies.style.color = "black";
+  headingText("Top 20 Trending Movies", "fa", "fa-arrow-circle-up");
+
   fetch(
     `https://api.themoviedb.org/3/trending/movie/day?api_key=83bc98823c4c710c5443011ef8e9dbf9`
   )
@@ -169,10 +173,12 @@ function searchTrendingMovies() {
           `TMDB Rating: 10/${obj.vote_average}`
         );
         h4.appendChild(rating);
-        
-        const h4releaseTag = document.createElement("h4")
-        const h4releaseDate = document.createTextNode(`Release date: ${obj.release_date}`)
-        h4releaseTag.appendChild(h4releaseDate)
+
+        const h4releaseTag = document.createElement("h4");
+        const h4releaseDate = document.createTextNode(
+          `Release date: ${obj.release_date}`
+        );
+        h4releaseTag.appendChild(h4releaseDate);
 
         h2.appendChild(title);
         p.appendChild(overview);
@@ -180,13 +186,82 @@ function searchTrendingMovies() {
         textContainer.appendChild(h2);
         textContainer.appendChild(p);
         textContainer.appendChild(h4);
-        textContainer.appendChild(h4releaseTag)
+        textContainer.appendChild(h4releaseTag);
         textContainer.appendChild(h4mediaType);
         movieBox.appendChild(textContainer);
         moviesContainer.appendChild(movieBox);
       });
     });
 }
+
+const trendingTv = document.getElementById("trending-tv")
+trendingTv.addEventListener("click", () => {
+  // searchTrendingMovies()
+  headingContainer.innerText = "";
+  moviesContainer.innerText = "";
+  trendingPeople.style.backgroundColor = "";
+  trendingPeople.style.color = "";
+  trendingMovies.style.backgroundColor = "";
+  trendingMovies.style.color = "";
+  trendingTv.style.backgroundColor = '#a8d0e6'
+  trendingTv.style.color = 'black'
+  headingText("Top 20 Trending TV Shows", "fa", "fa-arrow-circle-up");
+
+
+  fetch(
+    `https://api.themoviedb.org/3/tv/popular?api_key=83bc98823c4c710c5443011ef8e9dbf9&language=en-US&page=1`
+  )
+    .then((res) => res.json())
+    .then((data) => {
+      // console.log(data.results.length);
+      data.results.forEach((obj, index) => {
+        console.log(obj);
+        const movieBox = document.createElement("div");
+        movieBox.classList.add("container-box");
+        const textContainer = document.createElement("div");
+        const img = document.createElement("img");
+        const h2 = document.createElement("h2");
+        const p = document.createElement("p");
+        textContainer.classList.add("text-container");
+        // media title
+        let title = document.createTextNode(`#${index + 1} ${obj.name}`);
+        // media overview
+        let overview = document.createTextNode(obj.overview);
+        // poster image
+        img.src = `https://image.tmdb.org/t/p/original${obj.poster_path}`;
+
+        // media type
+        const mediaType = document.createTextNode(
+          obj.media_type === "tv" ? "TV Show" : "Movie"
+        );
+        const h4mediaType = document.createElement("h4");
+        h4mediaType.appendChild(mediaType);
+        // vote average
+        const h4 = document.createElement("h4");
+        const rating = document.createTextNode(
+          `TMDB Rating: 10/${obj.vote_average}`
+        );
+        h4.appendChild(rating);
+
+        const h4releaseTag = document.createElement("h4");
+        const h4releaseDate = document.createTextNode(
+          `Release date: ${obj.first_air_date}`
+        );
+        h4releaseTag.appendChild(h4releaseDate);
+
+        h2.appendChild(title);
+        p.appendChild(overview);
+        movieBox.appendChild(img);
+        textContainer.appendChild(h2);
+        textContainer.appendChild(p);
+        textContainer.appendChild(h4);
+        textContainer.appendChild(h4releaseTag);
+        textContainer.appendChild(h4mediaType);
+        movieBox.appendChild(textContainer);
+        moviesContainer.appendChild(movieBox);
+      });
+    });
+});
 
 const urls = [
   `https://api.themoviedb.org/3/trending/movie/day?api_key=83bc98823c4c710c5443011ef8e9dbf9`,
@@ -216,6 +291,8 @@ trendingPeople.addEventListener("click", () => {
   headingContainer.innerText = "";
   moviesContainer.innerText = "";
   // remove and add color to currently selected button
+  trendingTv.style.backgroundColor = ''
+  trendingTv.style.color = ''
   trendingMovies.style.backgroundColor = "";
   trendingMovies.style.color = "";
   trendingPeople.style.backgroundColor = "#a8d0e6";
@@ -304,17 +381,21 @@ trendingPeople.addEventListener("click", () => {
             let title = document.createTextNode(`#${index + 1} ${movie.title}`);
             let overview = document.createTextNode(movie.overview);
             img.src = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
-            const h4voteAverage = document.createElement("h4")
-            const voteAverageText = document.createTextNode(`TMDB Rating: 10/${movie.vote_average}`)
-            h4voteAverage.appendChild(voteAverageText)
-            const h4releaseDate = document.createElement("h4")
-            const releaseDateText = document.createTextNode(`Release date: ${movie.release_date}`)
-            h4releaseDate.appendChild(releaseDateText)
-            const h4mediaType = document.createElement("h4")
-            const mediaTypeText = document.createTextNode(obj.media_type === "tv" ? "TV Show" : "Movie")
-            h4mediaType.appendChild(mediaTypeText)
-
-
+            const h4voteAverage = document.createElement("h4");
+            const voteAverageText = document.createTextNode(
+              `TMDB Rating: 10/${movie.vote_average}`
+            );
+            h4voteAverage.appendChild(voteAverageText);
+            const h4releaseDate = document.createElement("h4");
+            const releaseDateText = document.createTextNode(
+              `Release date: ${movie.release_date}`
+            );
+            h4releaseDate.appendChild(releaseDateText);
+            const h4mediaType = document.createElement("h4");
+            const mediaTypeText = document.createTextNode(
+              obj.media_type === "tv" ? "TV Show" : "Movie"
+            );
+            h4mediaType.appendChild(mediaTypeText);
 
             h3.appendChild(title);
             p.appendChild(overview);

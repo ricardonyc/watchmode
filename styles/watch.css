@@ -305,7 +305,7 @@ select {
     display: flex;
     position: relative;
     width: 70%;
-    margin: 0 auto .5rem auto;
+    margin: 0 auto 0.5rem auto;
   }
   .bottom-section .inner-container .mobile-search-container #mobile-search-icon {
     position: absolute;
@@ -315,7 +315,7 @@ select {
             transform: translateY(-50%);
   }
   .bottom-section .inner-container .mobile-search-container .mobile-searchbar {
-    padding: .3rem .6rem .2rem 2rem;
+    padding: 0.3rem 0.6rem 0.2rem 2rem;
     width: 100%;
     border-radius: 15px;
     border: none;
@@ -353,14 +353,14 @@ select {
   }
   .bottom-section .container-box .text-container h2 {
     font-size: 1.5rem;
-    margin: .5rem 0;
+    margin: 0.5rem 0;
   }
   .bottom-section .container-box .text-container p {
     font-size: 0.9rem;
-    margin: .2rem 0;
+    margin: 0.2rem 0;
   }
   .bottom-section .container-box .text-container h3 {
-    margin: .2rem 0;
+    margin: 0.2rem 0;
   }
   .bottom-section .container-box img {
     width: 100%;

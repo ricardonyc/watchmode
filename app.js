@@ -216,7 +216,6 @@ trendingPeople.addEventListener("click", () => {
       document.getElementById("overlay-blur").appendChild(overlayBackground);
 
       data.results.forEach((obj, index) => {
-
         const movieBox = document.createElement("div");
         movieBox.classList.add("actor-box");
         const textContainer = document.createElement("div");
@@ -344,7 +343,6 @@ searchBar.addEventListener("keydown", (e) => {
     searching();
   }
 });
-
 
 function searching() {
   trendingMovies.style.backgroundColor = "";

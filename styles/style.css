@@ -565,4 +565,9 @@ body {
 .contact-container .contact-inner-container img {
   max-width: 400px;
 }
+
+.contact-container .contact-inner-container .fa-github {
+  color: #24305e;
+  font-size: 4rem;
+}
 /*# sourceMappingURL=style.css.map */

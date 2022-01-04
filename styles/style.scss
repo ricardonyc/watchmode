@@ -301,12 +301,9 @@ body {
   }
 
   .mid-section {
-    // border: 3px solid white;
-    // height: 120vh;
     position: relative;
 
     .mid-container {
-      // border: 2px solid blue;
       grid: 1fr 1fr / 1fr;
       grid-template-areas:
         "svg"
@@ -314,8 +311,6 @@ body {
 
       .svg {
         max-width: 400px;
-        // max-width: 70vw;
-        // max-height: 30vh;
         margin: 0 2rem;
       }
 
@@ -328,8 +323,6 @@ body {
 
         .mid-text {
           color: $dark-blue;
-          // position: relative;
-          // z-index: 99;
           font-size: 1.3rem;
         }
 

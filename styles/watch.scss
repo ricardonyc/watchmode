@@ -292,7 +292,7 @@ select {
 
       .overlay {
         width: 90%;
-        height: 50%;
+        height: 60%;
         padding: 0;
       }
 
@@ -330,10 +330,44 @@ select {
 
       img {
         width: 100%;
-        max-width: 350px;
+        max-width: 250px;
         border-radius: 15px;
         margin-right: 0;
       }
+    }
+  }
+
+  .actor-box {
+    margin: 0.5rem;
+      max-width: 300px;
+
+    .actor-text-container {
+      // max-width: 200px;
+      margin: auto;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      
+      h2 {
+        font-size: 1.15rem;
+        font-family: "Fjalla One", sans-serif;
+      }
+
+      p {
+        font-size: 0.9rem;
+        font-family: "Poppins", sans-serif;
+      }
+   
+
+    }
+
+    img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 5px;
     }
   }
 }

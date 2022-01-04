@@ -323,7 +323,7 @@ select {
   }
   .bottom-section .inner-container .overlay {
     width: 90%;
-    height: 50%;
+    height: 60%;
     padding: 0;
   }
   .bottom-section .inner-container .heading-text {
@@ -364,9 +364,45 @@ select {
   }
   .bottom-section .container-box img {
     width: 100%;
-    max-width: 350px;
+    max-width: 250px;
     border-radius: 15px;
     margin-right: 0;
+  }
+  .actor-box {
+    margin: 0.5rem;
+    max-width: 300px;
+  }
+  .actor-box .actor-text-container {
+    margin: auto;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .actor-box .actor-text-container h2 {
+    font-size: 1.15rem;
+    font-family: "Fjalla One", sans-serif;
+  }
+  .actor-box .actor-text-container p {
+    font-size: 0.9rem;
+    font-family: "Poppins", sans-serif;
+  }
+  .actor-box img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 5px;
   }
 }
 

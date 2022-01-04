@@ -124,15 +124,15 @@ trendingMovies.addEventListener("click", () => {
   //   .then((res) => res.json())
   //   .then((data) => {
   //     hideLoading();
-      searchTrendingMovies();
+  searchTrendingMovies();
   //   });
 });
 
 function searchTrendingMovies(url) {
   headingContainer.innerText = "";
   moviesContainer.innerText = "";
-  trendingTv.style.backgroundColor = ''
-  trendingTv.style.color = ''
+  trendingTv.style.backgroundColor = "";
+  trendingTv.style.color = "";
   trendingPeople.style.backgroundColor = "";
   trendingPeople.style.color = "";
   trendingMovies.style.backgroundColor = "#a8d0e6";
@@ -162,9 +162,7 @@ function searchTrendingMovies(url) {
         img.src = `https://image.tmdb.org/t/p/original${obj.poster_path}`;
 
         // media type
-        const mediaType = document.createTextNode(
-          obj.media_type === "tv" ? "TV Show" : "Movie"
-        );
+        const mediaType = document.createTextNode("Movie");
         const h4mediaType = document.createElement("h4");
         h4mediaType.appendChild(mediaType);
         // vote average
@@ -173,6 +171,12 @@ function searchTrendingMovies(url) {
           `TMDB Rating: 10/${obj.vote_average}`
         );
         h4.appendChild(rating);
+        if (obj.vote_count > 500 && obj.vote_average >= 7.5) {
+          const checkMark = document.createElement("i");
+          checkMark.classList.add("fa");
+          checkMark.classList.add("fa-check-circle");
+          h4.appendChild(checkMark)
+        }
 
         const h4releaseTag = document.createElement("h4");
         const h4releaseDate = document.createTextNode(
@@ -194,7 +198,7 @@ function searchTrendingMovies(url) {
     });
 }
 
-const trendingTv = document.getElementById("trending-tv")
+const trendingTv = document.getElementById("trending-tv");
 trendingTv.addEventListener("click", () => {
   // searchTrendingMovies()
   headingContainer.innerText = "";
@@ -203,10 +207,9 @@ trendingTv.addEventListener("click", () => {
   trendingPeople.style.color = "";
   trendingMovies.style.backgroundColor = "";
   trendingMovies.style.color = "";
-  trendingTv.style.backgroundColor = '#a8d0e6'
-  trendingTv.style.color = 'black'
+  trendingTv.style.backgroundColor = "#a8d0e6";
+  trendingTv.style.color = "black";
   headingText("Top 20 Trending TV Shows", "fa", "fa-arrow-circle-up");
-
 
   fetch(
     `https://api.themoviedb.org/3/tv/popular?api_key=83bc98823c4c710c5443011ef8e9dbf9&language=en-US&page=1`
@@ -231,9 +234,7 @@ trendingTv.addEventListener("click", () => {
         img.src = `https://image.tmdb.org/t/p/original${obj.poster_path}`;
 
         // media type
-        const mediaType = document.createTextNode(
-          obj.media_type === "tv" ? "TV Show" : "Movie"
-        );
+        const mediaType = document.createTextNode("TV Show");
         const h4mediaType = document.createElement("h4");
         h4mediaType.appendChild(mediaType);
         // vote average
@@ -242,6 +243,12 @@ trendingTv.addEventListener("click", () => {
           `TMDB Rating: 10/${obj.vote_average}`
         );
         h4.appendChild(rating);
+        if (obj.vote_count > 500 && obj.vote_average >= 7.5) {
+          const checkMark = document.createElement("i");
+          checkMark.classList.add("fa");
+          checkMark.classList.add("fa-check-circle");
+          h4.appendChild(checkMark)
+        }
 
         const h4releaseTag = document.createElement("h4");
         const h4releaseDate = document.createTextNode(
@@ -291,8 +298,8 @@ trendingPeople.addEventListener("click", () => {
   headingContainer.innerText = "";
   moviesContainer.innerText = "";
   // remove and add color to currently selected button
-  trendingTv.style.backgroundColor = ''
-  trendingTv.style.color = ''
+  trendingTv.style.backgroundColor = "";
+  trendingTv.style.color = "";
   trendingMovies.style.backgroundColor = "";
   trendingMovies.style.color = "";
   trendingPeople.style.backgroundColor = "#a8d0e6";

@@ -101,7 +101,6 @@
   padding: 90px 1rem;
   max-width: 1400px;
   height: 100%;
-  border: 2px solid blue;
 }
 
 .bottom-section .inner-container .heading-text {
@@ -116,7 +115,7 @@
 
 .bottom-section .inner-container .heading-text .fa-arrow-circle-up {
   margin-right: 0.5rem;
-  color: #1bff1b;
+  color: #5dff5d;
   font-size: 2.5rem;
 }
 
@@ -137,6 +136,12 @@
       flex-wrap: wrap;
   width: 100%;
   margin-top: 1rem;
+}
+
+.bottom-section .inner-container .movies-container .fa-check-circle {
+  color: #5dff5d;
+  font-size: 1.1rem;
+  margin-left: .5rem;
 }
 
 .bottom-section .container-box {

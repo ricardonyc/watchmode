@@ -91,7 +91,6 @@
     padding: 90px 1rem; // moves input down
     max-width: 1400px;
     height: 100%;
-    border: 2px solid blue;
 
     .heading-text {
       // border: 1px solid yellow;
@@ -101,7 +100,7 @@
 
       .fa-arrow-circle-up {
         margin-right: 0.5rem;
-        color: #1bff1b;
+        color: $green;
         font-size: 2.5rem;
       }
 
@@ -119,6 +118,12 @@
       width: 100%;
       // border: 1px solid black;
       margin-top: 1rem;
+
+      .fa-check-circle{
+        color: $green;
+        font-size: 1.1rem;
+        margin-left: .5rem;
+      }
     }
   }
 
@@ -316,7 +321,7 @@ select {
   visibility: hidden;
 }
 
-.triple-spinner.display{
+.triple-spinner.display {
   visibility: visible;
 }
 

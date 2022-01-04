@@ -1,12 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <link rel="stylesheet" href="../styles/style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <section class="nav-container">
+        <nav class='navbar'>
+            <h1>MovieDB</h1>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="#">Learn More</a></li>
+                <li><a href="#"><span class='contact'>Contact</span></a></li>
+            </ul>
+            <div class="btn">
+                <div class="menu-bars"></div>
+            </div>
+        </nav>
+    </section>
+
+    <section class="contact-container">
+        <div class="contact-inner-container">
+            <h2>Have a question or suggestion?<br>Contact me here!</h2>
+            <div class="form-container">
+                <div class="input-container">
+                    <label for="fname">First name:</label>
+                    <input type="text" id='fname' placeholder="First Name">
+                </div>
+                <div class="input-container">
+                    <label for="lname">Last name:</label>
+                    <input type="text" id='lname' placeholder="Last Name">
+                </div>
+                <div class="input-container">
+                    <label for="email">Email:</label>
+                    <input type="text" id='email' placeholder="Email">
+                </div>
+
+                <label for="w3review">Message:</label>
+
+                <textarea id="w3review" name="w3review" rows="10" cols="65" placeholder="Start typing..."></textarea>
+                <button class='submit'>Submit</button>
+            </div>
+
+            <img src="../images/writing.svg" alt="">
+        </div>
+    </section>
+
+
+    <script src="../styling.js"></script>
 </body>
+
 </html>

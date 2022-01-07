@@ -72,23 +72,15 @@ function searchMovie() {
 const searchBtn = document.getElementById("btn");
 const userInput = document.getElementById("input");
 
-
-
 const trendingMovies = document.getElementById("trending-movies");
 trendingMovies.addEventListener("click", () => {
   displayLoading();
 
-  // fetch(
-  //   `https://api.themoviedb.org/3/trending/movie/day?api_key=83bc98823c4c710c5443011ef8e9dbf9`
-  // )
-  //   .then((res) => res.json())
-  //   .then((data) => {
-  //     hideLoading();
+
   searchTrending(
     `https://api.themoviedb.org/3/trending/movie/day?api_key=83bc98823c4c710c5443011ef8e9dbf9`,
     "Movies"
   );
-  //   });
 });
 
 function searchTrending(url, trendingText) {
@@ -254,7 +246,6 @@ trendingPeople.addEventListener("click", () => {
         });
 
         obj.known_for.forEach((movie, index) => {
-          // console.log(movie);
 
           if (movie.title || movie.original_name) {
             const h2 = document.createElement("h2");
@@ -344,6 +335,7 @@ function searching() {
   headingContainer.innerText = "";
   moviesContainer.innerText = "";
   const searchBar = document.getElementById("search").value;
+  displayLoading();
 
   fetch(
     `https://api.themoviedb.org/3/search/multi?api_key=83bc98823c4c710c5443011ef8e9dbf9&language=en-US&page=1&query=${searchBar}`
@@ -351,6 +343,7 @@ function searching() {
     .then((res) => res.json())
     .then((data) => {
       // sort by vote count
+      hideLoading();
       data.results.sort((a, b) => a.vote_count - b.vote_count).reverse();
 
       const filmIcon = document.createElement("i");
@@ -363,9 +356,7 @@ function searching() {
       headingContainer.appendChild(topH2);
 
       data.results.forEach((obj, index) => {
-        // console.log(obj);
         if (obj.media_type === "person") {
-          // console.log(obj);
           console.log("person found");
         } else if (obj.media_type === "tv" || obj.media_type === "movie") {
           // console.log("Movie or TV show found!");
